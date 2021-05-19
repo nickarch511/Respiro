@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F2196240264F20B60002BC36 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F219623F264F20B60002BC36 /* PlaySound.swift */; };
+		F2648809264EAFC300B5BA5A /* InhaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2648808264EAFC300B5BA5A /* InhaleApp.swift */; };
+		F264880B264EAFC300B5BA5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264880A264EAFC300B5BA5A /* ContentView.swift */; };
+		F264880D264EAFC300B5BA5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F264880C264EAFC300B5BA5A /* Assets.xcassets */; };
+		F2648810264EAFC300B5BA5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F264880F264EAFC300B5BA5A /* Preview Assets.xcassets */; };
+		F2648826264EAFC300B5BA5A /* InhaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2648825264EAFC300B5BA5A /* InhaleUITests.swift */; };
+		F2661433265169CE00DFF8E3 /* 4inhold4outhold.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F266142E265169CD00DFF8E3 /* 4inhold4outhold.mp3 */; };
+		F2661434265169CE00DFF8E3 /* 15in15outbreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F266142F265169CD00DFF8E3 /* 15in15outbreath.mp3 */; };
+		F2661436265169CE00DFF8E3 /* wimhof-v2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2661431265169CD00DFF8E3 /* wimhof-v2.mp3 */; };
+		F2661437265169CE00DFF8E3 /* wimhofv3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2661432265169CE00DFF8E3 /* wimhofv3.mp3 */; };
+		F266143B2652A7B400DFF8E3 /* wimhofv4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F266143A2652A7B400DFF8E3 /* wimhofv4.mp3 */; };
+		F266143D2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F266143C2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 */; };
+		F266143F2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F266143E2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 */; };
+		F266144126530B3300DFF8E3 /* confidencebreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F266144026530B3300DFF8E3 /* confidencebreath.mp3 */; };
+		F26614452653437C00DFF8E3 /* lisong-pro_bigfontsite.com.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F26614442653407D00DFF8E3 /* lisong-pro_bigfontsite.com.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F2648822264EAFC300B5BA5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F26487FD264EAFC300B5BA5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2648804264EAFC300B5BA5A;
+			remoteInfo = Inhale;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F219623F264F20B60002BC36 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		F2648805264EAFC300B5BA5A /* Respiro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Respiro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2648808264EAFC300B5BA5A /* InhaleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhaleApp.swift; sourceTree = "<group>"; };
+		F264880A264EAFC300B5BA5A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F264880C264EAFC300B5BA5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F264880F264EAFC300B5BA5A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F2648811264EAFC300B5BA5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F264881A264EAFC300B5BA5A /* InhaleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhaleTests.swift; sourceTree = "<group>"; };
+		F264881C264EAFC300B5BA5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2648821264EAFC300B5BA5A /* InhaleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InhaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2648825264EAFC300B5BA5A /* InhaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhaleUITests.swift; sourceTree = "<group>"; };
+		F2648827264EAFC300B5BA5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F266142E265169CD00DFF8E3 /* 4inhold4outhold.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 4inhold4outhold.mp3; path = myitems/sounds/4inhold4outhold.mp3; sourceTree = "<group>"; };
+		F266142F265169CD00DFF8E3 /* 15in15outbreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 15in15outbreath.mp3; path = myitems/sounds/15in15outbreath.mp3; sourceTree = "<group>"; };
+		F2661431265169CD00DFF8E3 /* wimhof-v2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "wimhof-v2.mp3"; path = "myitems/sounds/wimhof-v2.mp3"; sourceTree = "<group>"; };
+		F2661432265169CE00DFF8E3 /* wimhofv3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = wimhofv3.mp3; path = myitems/sounds/wimhofv3.mp3; sourceTree = "<group>"; };
+		F266143A2652A7B400DFF8E3 /* wimhofv4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = wimhofv4.mp3; path = myitems/sounds/wimhofv4.mp3; sourceTree = "<group>"; };
+		F266143C2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "wimhof-firsthalf.mp3"; path = "myitems/sounds/wimhof-firsthalf.mp3"; sourceTree = "<group>"; };
+		F266143E2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "wimhof-secondhalf.mp3"; path = "myitems/sounds/wimhof-secondhalf.mp3"; sourceTree = "<group>"; };
+		F266144026530B3300DFF8E3 /* confidencebreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = confidencebreath.mp3; path = myitems/sounds/confidencebreath.mp3; sourceTree = "<group>"; };
+		F26614442653407D00DFF8E3 /* lisong-pro_bigfontsite.com.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lisong-pro_bigfontsite.com.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2648802264EAFC300B5BA5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F264881E264EAFC300B5BA5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F26487FC264EAFC300B5BA5A = {
+			isa = PBXGroup;
+			children = (
+				F266142E265169CD00DFF8E3 /* 4inhold4outhold.mp3 */,
+				F266143C2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 */,
+				F266144026530B3300DFF8E3 /* confidencebreath.mp3 */,
+				F266142F265169CD00DFF8E3 /* 15in15outbreath.mp3 */,
+				F266143E2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 */,
+				F2661431265169CD00DFF8E3 /* wimhof-v2.mp3 */,
+				F266143A2652A7B400DFF8E3 /* wimhofv4.mp3 */,
+				F2661432265169CE00DFF8E3 /* wimhofv3.mp3 */,
+				F2648807264EAFC300B5BA5A /* Respiro */,
+				F2648819264EAFC300B5BA5A /* InhaleTests */,
+				F2648824264EAFC300B5BA5A /* InhaleUITests */,
+				F2648806264EAFC300B5BA5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F2648806264EAFC300B5BA5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2648805264EAFC300B5BA5A /* Respiro.app */,
+				F2648821264EAFC300B5BA5A /* InhaleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2648807264EAFC300B5BA5A /* Respiro */ = {
+			isa = PBXGroup;
+			children = (
+				F26614422653405B00DFF8E3 /* Fonts */,
+				F2648808264EAFC300B5BA5A /* InhaleApp.swift */,
+				F264880A264EAFC300B5BA5A /* ContentView.swift */,
+				F219623F264F20B60002BC36 /* PlaySound.swift */,
+				F264880C264EAFC300B5BA5A /* Assets.xcassets */,
+				F2648811264EAFC300B5BA5A /* Info.plist */,
+				F264880E264EAFC300B5BA5A /* Preview Content */,
+			);
+			path = Respiro;
+			sourceTree = "<group>";
+		};
+		F264880E264EAFC300B5BA5A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F264880F264EAFC300B5BA5A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F2648819264EAFC300B5BA5A /* InhaleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F264881A264EAFC300B5BA5A /* InhaleTests.swift */,
+				F264881C264EAFC300B5BA5A /* Info.plist */,
+			);
+			path = InhaleTests;
+			sourceTree = "<group>";
+		};
+		F2648824264EAFC300B5BA5A /* InhaleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F2648825264EAFC300B5BA5A /* InhaleUITests.swift */,
+				F2648827264EAFC300B5BA5A /* Info.plist */,
+			);
+			path = InhaleUITests;
+			sourceTree = "<group>";
+		};
+		F26614422653405B00DFF8E3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F26614442653407D00DFF8E3 /* lisong-pro_bigfontsite.com.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2648804264EAFC300B5BA5A /* Respiro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F264882A264EAFC300B5BA5A /* Build configuration list for PBXNativeTarget "Respiro" */;
+			buildPhases = (
+				F2648801264EAFC300B5BA5A /* Sources */,
+				F2648802264EAFC300B5BA5A /* Frameworks */,
+				F2648803264EAFC300B5BA5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Respiro;
+			productName = Inhale;
+			productReference = F2648805264EAFC300B5BA5A /* Respiro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F2648820264EAFC300B5BA5A /* InhaleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2648830264EAFC300B5BA5A /* Build configuration list for PBXNativeTarget "InhaleUITests" */;
+			buildPhases = (
+				F264881D264EAFC300B5BA5A /* Sources */,
+				F264881E264EAFC300B5BA5A /* Frameworks */,
+				F264881F264EAFC300B5BA5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2648823264EAFC300B5BA5A /* PBXTargetDependency */,
+			);
+			name = InhaleUITests;
+			productName = InhaleUITests;
+			productReference = F2648821264EAFC300B5BA5A /* InhaleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F26487FD264EAFC300B5BA5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					F2648804264EAFC300B5BA5A = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					F2648820264EAFC300B5BA5A = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = F2648804264EAFC300B5BA5A;
+					};
+				};
+			};
+			buildConfigurationList = F2648800264EAFC300B5BA5A /* Build configuration list for PBXProject "Respiro" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F26487FC264EAFC300B5BA5A;
+			productRefGroup = F2648806264EAFC300B5BA5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F2648804264EAFC300B5BA5A /* Respiro */,
+				F2648820264EAFC300B5BA5A /* InhaleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2648803264EAFC300B5BA5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2661434265169CE00DFF8E3 /* 15in15outbreath.mp3 in Resources */,
+				F266143F2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 in Resources */,
+				F2648810264EAFC300B5BA5A /* Preview Assets.xcassets in Resources */,
+				F2661436265169CE00DFF8E3 /* wimhof-v2.mp3 in Resources */,
+				F264880D264EAFC300B5BA5A /* Assets.xcassets in Resources */,
+				F266143D2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 in Resources */,
+				F2661433265169CE00DFF8E3 /* 4inhold4outhold.mp3 in Resources */,
+				F266143B2652A7B400DFF8E3 /* wimhofv4.mp3 in Resources */,
+				F266144126530B3300DFF8E3 /* confidencebreath.mp3 in Resources */,
+				F2661437265169CE00DFF8E3 /* wimhofv3.mp3 in Resources */,
+				F26614452653437C00DFF8E3 /* lisong-pro_bigfontsite.com.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F264881F264EAFC300B5BA5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2648801264EAFC300B5BA5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F264880B264EAFC300B5BA5A /* ContentView.swift in Sources */,
+				F2196240264F20B60002BC36 /* PlaySound.swift in Sources */,
+				F2648809264EAFC300B5BA5A /* InhaleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F264881D264EAFC300B5BA5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2648826264EAFC300B5BA5A /* InhaleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2648823264EAFC300B5BA5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2648804264EAFC300B5BA5A /* Respiro */;
+			targetProxy = F2648822264EAFC300B5BA5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F2648828264EAFC300B5BA5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F2648829264EAFC300B5BA5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F264882B264EAFC300B5BA5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"respiro/Preview Content\"";
+				DEVELOPMENT_TEAM = 53K66LP852;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = respiro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.respiro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F264882C264EAFC300B5BA5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"respiro/Preview Content\"";
+				DEVELOPMENT_TEAM = 53K66LP852;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = respiro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.respiro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F2648831264EAFC300B5BA5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53K66LP852;
+				INFOPLIST_FILE = InhaleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.InhaleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Inhale;
+			};
+			name = Debug;
+		};
+		F2648832264EAFC300B5BA5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53K66LP852;
+				INFOPLIST_FILE = InhaleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.InhaleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Inhale;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2648800264EAFC300B5BA5A /* Build configuration list for PBXProject "Respiro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2648828264EAFC300B5BA5A /* Debug */,
+				F2648829264EAFC300B5BA5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F264882A264EAFC300B5BA5A /* Build configuration list for PBXNativeTarget "Respiro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F264882B264EAFC300B5BA5A /* Debug */,
+				F264882C264EAFC300B5BA5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2648830264EAFC300B5BA5A /* Build configuration list for PBXNativeTarget "InhaleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2648831264EAFC300B5BA5A /* Debug */,
+				F2648832264EAFC300B5BA5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F26487FD264EAFC300B5BA5A /* Project object */;
+}

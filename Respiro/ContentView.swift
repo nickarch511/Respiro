@@ -174,6 +174,9 @@ struct ProfileScreen: View {
     @State var goHome = false
     @State var totalBreathsTaken = 0
     @AppStorage("totalBreaths") var totalBreaths = 0
+    @AppStorage("totalWimHofs") var totalWimHofs = 0
+    @AppStorage("totalConfidenceBreaths") var totalConfidenceBreaths = 0
+    @AppStorage("totalHappinessBreaths") var totalHappinessBreaths = 0
     
     var body: some View {
         VStack {
@@ -181,6 +184,7 @@ struct ProfileScreen: View {
                 MainScreen()
             } else {
                 
+                Spacer()
                 if ceil(log10(Double(totalBreaths))) > 6 {
                     Text(String(totalBreaths))
                         .font(.custom("LiSong Pro", size: 60))
@@ -193,8 +197,28 @@ struct ProfileScreen: View {
                         .font(.custom("LiSong Pro", size: 40))
                 }
                 
+                Spacer()
                 
+                Text("most used breath").font(.custom("LiSong Pro", size: 30))
+                if totalWimHofs > totalConfidenceBreaths && totalWimHofs > totalHappinessBreaths {
+                    Text("Breath Retention").bold()
+                        .font(.custom("LiSong Pro", size: 40))
+                        .multilineTextAlignment(.center)
+                } else if totalConfidenceBreaths > totalWimHofs && totalConfidenceBreaths > totalHappinessBreaths {
+                    Text("Confidence Breath").bold()
+                        .font(.custom("LiSong Pro", size: 40))
+                        .multilineTextAlignment(.center)
+                } else if totalHappinessBreaths > totalWimHofs && totalHappinessBreaths > totalConfidenceBreaths {
+                    Text("Happiness Breath").bold()
+                        .font(.custom("LiSong Pro", size: 40))
+                        .multilineTextAlignment(.center)
+                } else {
+                    Text("a tie!").bold()
+                        .font(.custom("LiSong Pro", size: 40))
+                        .multilineTextAlignment(.center)
+                }
                 
+                Spacer()
                 
                 ZStack {
                     
@@ -248,6 +272,7 @@ struct HappinessBreath: View {
     @State private var startBreathing = false
     @State private var clickedStartAlready = false
     @AppStorage("totalBreaths") var totalBreaths = 0
+    @AppStorage("totalHappinessBreaths") var totalHappinessBreaths = 0
     
     private let halfSecondsToFinishABreath = 0.5*15 // 8 breaths/min
     private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
@@ -331,6 +356,7 @@ struct HappinessBreath: View {
                                         }
                                     }
                                 }).onAppear {
+                                    totalHappinessBreaths += 1
                                     UIApplication.shared.isIdleTimerDisabled = true
                                 }
                         })
@@ -380,6 +406,7 @@ struct ConfidenceBreath: View {
     @State private var startBreathing = false
     @State private var clickedStartAlready = false
     @AppStorage("totalBreaths") var totalBreaths = 0
+    @AppStorage("totalConfidenceBreaths") var totalConfidenceBreaths = 0
     
     private let halfSecondsToFinishABreath = 0.5*15 // 8 breaths/min
     private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
@@ -462,6 +489,7 @@ struct ConfidenceBreath: View {
                                         }
                                     }
                                 }).onAppear {
+                                    totalConfidenceBreaths += 1
                                     UIApplication.shared.isIdleTimerDisabled = true
                                 }
                         })
@@ -518,6 +546,7 @@ struct WimHofScreen: View {
     @State var breathingOutOfPostHold = false
     @State var currentlyBreathingOutOfPostHold = false
     @AppStorage("totalBreaths") var totalBreaths = 0
+    @AppStorage("totalWimHofs") var totalWimHofs = 0
     
     // Edit these varaible to customize
     private var timer_seconds:Double = 0.5 // If this is changed, update timer accordingly!
@@ -678,6 +707,7 @@ struct WimHofScreen: View {
                         .onReceive(timer, perform: { _ in
                             onTimerTic()
                         }).onAppear {
+                            totalWimHofs += 1
                             UIApplication.shared.isIdleTimerDisabled = true
                             assembleImgArr(imgArray: &images)
                         }

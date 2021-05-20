@@ -183,82 +183,106 @@ struct ProfileScreen: View {
             if goHome {
                 MainScreen()
             } else {
-                
-                Spacer()
-                if ceil(log10(Double(totalBreaths))) > 6 {
-                    Text(String(totalBreaths))
-                        .font(.custom("LiSong Pro", size: 60))
-                    Text(String("total breaths taken"))
-                        .font(.custom("LiSong Pro", size: 40))
-                } else {
-                    Text(String(totalBreaths))
-                        .font(.custom("LiSong Pro", size: 100))
-                    Text(String("total breaths taken"))
-                        .font(.custom("LiSong Pro", size: 40))
-                }
-                
-                Spacer()
-                
-                Text("most used breath").font(.custom("LiSong Pro", size: 30))
-                if totalWimHofs > totalConfidenceBreaths && totalWimHofs > totalHappinessBreaths {
-                    Text("Breath Retention").bold()
-                        .font(.custom("LiSong Pro", size: 40))
-                        .multilineTextAlignment(.center)
-                } else if totalConfidenceBreaths > totalWimHofs && totalConfidenceBreaths > totalHappinessBreaths {
-                    Text("Confidence Breath").bold()
-                        .font(.custom("LiSong Pro", size: 40))
-                        .multilineTextAlignment(.center)
-                } else if totalHappinessBreaths > totalWimHofs && totalHappinessBreaths > totalConfidenceBreaths {
-                    Text("Happiness Breath").bold()
-                        .font(.custom("LiSong Pro", size: 40))
-                        .multilineTextAlignment(.center)
-                } else {
-                    Text("a tie!").bold()
-                        .font(.custom("LiSong Pro", size: 40))
-                        .multilineTextAlignment(.center)
-                }
-                
-                Spacer()
-                
-                ZStack {
-                    
-                }.toolbar {
-                    
-                    // Code for Toolbar at bottom of screen
-                    ToolbarItemGroup(placement: .bottomBar) {
-                        Spacer()
-                        Button(action: {
-                            goHome = true
-                        }, label: {
-                            Image(systemName: "house")
-                                .font(.system(size: 50))
-                        })
-                        Spacer()
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            
-                            
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            Spacer()
-                            
-                            
-                            
-                            Button(action: {
-                                
-                            }, label: {
-                                Image(systemName: "person")
-                                    .font(.system(size: 25))
-                                
-                            })
+                    Spacer(minLength: 50)
+                    VStack {
+                        if ceil(log10(Double(totalBreaths))) > 6 {
+                            Text(String(totalBreaths))
+                                .font(.custom("LiSong Pro", size: 60))
+                            Text(String("total breaths taken"))
+                                .font(.custom("LiSong Pro", size: 40))
+                        } else {
+                            Text(String(totalBreaths))
+                                .font(.custom("LiSong Pro", size: 100))
+                            Text(String("total breaths taken"))
+                                .font(.custom("LiSong Pro", size: 40))
                         }
-                        Spacer()
                     }
-                }
+                    
+                    Spacer()
+                    Spacer(minLength: 400)
+                    
+                    VStack {
+                        Text("most used breath: ").font(.custom("LiSong Pro", size: 30)).frame(alignment: .bottom).padding(-100)
+                        if totalWimHofs > totalConfidenceBreaths && totalWimHofs > totalHappinessBreaths {
+                            GeometryReader { geo in
+                                Image("wimhofbutton")
+                                    .resizable()
+                                    .padding()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: geo.size.width, height: geo.size.height, alignment: .top)
+                                    .padding(.vertical, -130)
+                                    
+                            }
+                            
+                        } else if totalConfidenceBreaths > totalWimHofs && totalConfidenceBreaths > totalHappinessBreaths {
+                            GeometryReader { geo in
+                                Image("confiencebreath")
+                                    .resizable()
+                                    .padding()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geo.size.width, alignment: .center)
+                                    .padding(.vertical, -130)
+                            }
+                        } else if totalHappinessBreaths > totalWimHofs && totalHappinessBreaths > totalConfidenceBreaths {
+                            GeometryReader { geo in
+                                Image("happinessbutton")
+                                    .resizable()
+                                    .padding()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geo.size.width, alignment: .center)
+                                    .padding(.vertical, -130)
+                            }
+                        } else {
+                            Text("a tie!").bold()
+                                .font(.custom("LiSong Pro", size: 40))
+                                .multilineTextAlignment(.center)
+                        }
+                      
+                        Spacer(minLength: 150)
+                    }
+                    
+                    
+                    Spacer()
+                    
+                    ZStack {
+                        
+                    }.toolbar {
+                        
+                        // Code for Toolbar at bottom of screen
+                        ToolbarItemGroup(placement: .bottomBar) {
+                            Spacer()
+                            Button(action: {
+                                goHome = true
+                            }, label: {
+                                Image(systemName: "house")
+                                    .font(.system(size: 50))
+                            })
+                            Spacer()
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                
+                                
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                                
+                                
+                                
+                                Button(action: {
+                                    
+                                }, label: {
+                                    Image(systemName: "person")
+                                        .font(.system(size: 25))
+                                    
+                                })
+                            }
+                            Spacer()
+                        }
+                    }
+                
             }
-            
             
         }
     }
@@ -742,7 +766,7 @@ struct WimHofScreen: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MainScreen()
+            ProfileScreen()
             
         }
     }

@@ -72,8 +72,9 @@ struct MainScreen: View {
                                                 Spacer()
                                                 Image("rightarrow")
                                                     .resizable()
-                                                    .frame(width: geo.size.width/7, height: geo.size.height/7)
+                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
                                                     .padding(.trailing, -20.0)
+                                                    .padding(.leading, 100.0)
                                                     .onTapGesture {
                                                         self.selectedTab = 2
                                                     }
@@ -172,12 +173,13 @@ struct MainScreen: View {
                                                 
                                                 Image("leftarrow")
                                                     .resizable()
-                                                    .frame(width: geo.size.width/7, height: geo.size.height/7)
+                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
                                                     .padding(.leading, -20.0)
+                                                    .padding(.trailing, 100.0)
                                                     .onTapGesture {
                                                         self.selectedTab = 1
                                                     }
-                                         
+                                                    
                                                 
                                                 Spacer()
                                             }

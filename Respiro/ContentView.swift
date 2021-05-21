@@ -24,7 +24,7 @@ typealias tuple = (str: String, num: Int)
  *                  6) Go to the ProfileScreen struck and
  *                      i. add the corresponding AppStorage variabe
  *                      ii. in the VStack, add to the list_of_breath_tuples the ("<breathbutton>, <AppStorage-var>")
- *                  7) Test and make sure it's working
+ *                  7) Edit page arrows accordingly in main screen
  *
  */
 
@@ -59,153 +59,201 @@ struct MainScreen: View {
                     VStack {
                         ZStack {
                             TabView {
-                                ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-                                    VStack {
-                                        Spacer(minLength: geo.size.height/2.5)
-                                        GeometryReader { innerGeo in
-                                            Button(action: {
-                                                goToHappinessBreathScreen.toggle()
-                                                
-                                            }) {
-                                                
-                                                Image("happinessbutton")
+                                ZStack {
+                                    GeometryReader { geo in
+                                        VStack {
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                      
+                                            HStack {
+                                                Spacer()
+                                                Image("rightarrow")
                                                     .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
-                                                    .padding(.vertical, -50.0)
-                                                
-                                            }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        }
-                                        
-                                        Spacer(minLength: 50)
-                                        
-                                        GeometryReader { innerGeo in
-                                            Button(action: {
-                                                goToWimHofScreen.toggle()
-                                                
-                                            }) {
-                                                
-                                                Image("wimhofbutton")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
-                                                    .padding(.vertical, -50.0)
-                                                
-                                                
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: geo.size.width/5)
+                                                    .padding(.trailing, -20.0)
                                             }
-                                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                            .frame(width: innerGeo.size.width)
+                                            
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
                                             
                                             
                                         }
-                                        
-                                        Spacer(minLength: geo.size.height/6.25)
-                                        
-                                        GeometryReader { innerGeo in
-                                            Button(action: {
-                                                goToConfidenceBreathScreen.toggle()
-                                                
-                                            }) {
-                                                
-                                                Image("confiencebreath")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
-                                                    .padding(.vertical, -50.0)
-                                                
-                                                
-                                            }
-                                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                            .frame(width: innerGeo.size.width)
-                                            
-                                            
-                                        }
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        Spacer()
-                                        Spacer()
                                     }
                                     
+                                    ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
+                                        
+                                        
+                                        VStack {
+                                            Spacer(minLength: geo.size.height/2.5)
+                                            GeometryReader { innerGeo in
+                                                Button(action: {
+                                                    goToHappinessBreathScreen.toggle()
+                                                    
+                                                }) {
+                                                    
+                                                    Image("happinessbutton")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .padding(.vertical, -50.0)
+                                                    
+                                                }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            }
+                                            
+                                            Spacer(minLength: 50)
+                                            
+                                            GeometryReader { innerGeo in
+                                                Button(action: {
+                                                    goToWimHofScreen.toggle()
+                                                    
+                                                }) {
+                                                    
+                                                    Image("wimhofbutton")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .padding(.vertical, -50.0)
+                                                    
+                                                    
+                                                }
+                                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                                .frame(width: innerGeo.size.width)
+                                                
+                                                
+                                            }
+                                            
+                                            Spacer(minLength: geo.size.height/6.25)
+                                            
+                                            GeometryReader { innerGeo in
+                                                Button(action: {
+                                                    goToConfidenceBreathScreen.toggle()
+                                                    
+                                                }) {
+                                                    
+                                                    Image("confiencebreath")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .padding(.vertical, -50.0)
+                                                    
+                                                    
+                                                }
+                                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                                .frame(width: innerGeo.size.width)
+                                                
+                                                
+                                            }
+                                            
+                                            Spacer()
+                                            Spacer()
+                                        }
+                                    }
                                     
                                 }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
                                 .tag(1)
                                 
-                                ScrollView(.vertical, showsIndicators: false) {
-                                    VStack {
-                                        Spacer(minLength: geo.size.height/2.5)
-                                        GeometryReader { innerGeo in
-                                            Button(action: {
-                                                goToBoxBreathScreen.toggle()
-                                                
-                                            }) {
-                                                
-                                                Image("boxbutton")
+                                ZStack {
+                                    GeometryReader { geo in
+                                        VStack {
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                      
+                                            HStack {
+                                                Image("leftarrow")
                                                     .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
-                                                    .padding(.vertical, -50.0)
-                                                
-                                            }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        }
-                                        
-                                        Spacer(minLength: 50)
-                                        
-                                        /*
-                                        GeometryReader { innerGeo in
-                                            Button(action: {
-                                                goToWimHofScreen.toggle()
-                                                
-                                            }) {
-                                                
-                                                Image("wimhofbutton")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
-                                                    .padding(.vertical, -50.0)
-                                                
-                                                
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width: geo.size.width/5)
+                                                    .padding(.leading, -20.0)
+                                                Spacer()
                                             }
-                                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                            .frame(width: innerGeo.size.width)
+                                            
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
                                             
                                             
                                         }
-                                        
-                                        Spacer(minLength: geo.size.height/6.25)
-                                        
-                                        GeometryReader { innerGeo in
-                                            Button(action: {
-                                                goToConfidenceBreathScreen.toggle()
-                                                
-                                            }) {
-                                                
-                                                Image("confiencebreath")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fill)
-                                                    .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
-                                                    .padding(.vertical, -50.0)
-                                                
-                                                
-                                            }
-                                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                            .frame(width: innerGeo.size.width)
-                                            
-                                            
-                                        }
-                                        
-                                        
-                                        
-                                        */
-                                        
-                                        
-                                        Spacer()
-                                        Spacer()
                                     }
-                                    
+                                    ScrollView(.vertical, showsIndicators: false) {
+                                        
+                                        
+                                        VStack {
+                                            Spacer(minLength: geo.size.height/2.5)
+                                            GeometryReader { innerGeo in
+                                                Button(action: {
+                                                    goToBoxBreathScreen.toggle()
+                                                    
+                                                }) {
+                                                    
+                                                    Image("boxbutton")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .padding(.vertical, -50.0)
+                                                    
+                                                }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            }
+                                            
+                                            Spacer(minLength: 95.5) // this for some reason edits the arrow
+                                            
+                                            /*
+                                             GeometryReader { innerGeo in
+                                             Button(action: {
+                                             goToWimHofScreen.toggle()
+                                             
+                                             }) {
+                                             
+                                             Image("wimhofbutton")
+                                             .resizable()
+                                             .aspectRatio(contentMode: .fill)
+                                             .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                             .padding(.vertical, -50.0)
+                                             
+                                             
+                                             }
+                                             .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                             .frame(width: innerGeo.size.width)
+                                             
+                                             
+                                             }
+                                             
+                                             Spacer(minLength: geo.size.height/6.25)
+                                             
+                                             GeometryReader { innerGeo in
+                                             Button(action: {
+                                             goToConfidenceBreathScreen.toggle()
+                                             
+                                             }) {
+                                             
+                                             Image("confiencebreath")
+                                             .resizable()
+                                             .aspectRatio(contentMode: .fill)
+                                             .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                             .padding(.vertical, -50.0)
+                                             
+                                             
+                                             }
+                                             .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                             .frame(width: innerGeo.size.width)
+                                             
+                                             
+                                             }
+                                             
+                                             
+                                             
+                                             */
+                                            
+                                            
+                                            Spacer()
+                                            Spacer()
+                                        }
+                                    }
                                     
                                 }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
                                 .tag(2)
@@ -994,7 +1042,7 @@ struct WimHofScreen: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ProfileScreen()
+            MainScreen()
             
         }
     }

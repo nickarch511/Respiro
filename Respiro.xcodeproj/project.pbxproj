@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F20C80EB26583D9500575C00 /* breathoffire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F20C80EA26583D9500575C00 /* breathoffire.mp3 */; };
 		F2196240264F20B60002BC36 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F219623F264F20B60002BC36 /* PlaySound.swift */; };
 		F2648809264EAFC300B5BA5A /* InhaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2648808264EAFC300B5BA5A /* InhaleApp.swift */; };
 		F264880B264EAFC300B5BA5A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264880A264EAFC300B5BA5A /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F20C80EA26583D9500575C00 /* breathoffire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = breathoffire.mp3; path = myitems/sounds/breathoffire.mp3; sourceTree = "<group>"; };
 		F219623F264F20B60002BC36 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		F2648805264EAFC300B5BA5A /* Respiro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Respiro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2648808264EAFC300B5BA5A /* InhaleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InhaleApp.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				F266143C2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 */,
 				F266144026530B3300DFF8E3 /* confidencebreath.mp3 */,
 				F266142F265169CD00DFF8E3 /* 15in15outbreath.mp3 */,
+				F20C80EA26583D9500575C00 /* breathoffire.mp3 */,
 				F266143E2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 */,
 				F2661431265169CD00DFF8E3 /* wimhof-v2.mp3 */,
 				F266143A2652A7B400DFF8E3 /* wimhofv4.mp3 */,
@@ -234,6 +237,7 @@
 				F2661434265169CE00DFF8E3 /* 15in15outbreath.mp3 in Resources */,
 				F266143F2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 in Resources */,
 				F2648810264EAFC300B5BA5A /* Preview Assets.xcassets in Resources */,
+				F20C80EB26583D9500575C00 /* breathoffire.mp3 in Resources */,
 				F2661436265169CE00DFF8E3 /* wimhof-v2.mp3 in Resources */,
 				F264880D264EAFC300B5BA5A /* Assets.xcassets in Resources */,
 				F266143D2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 in Resources */,

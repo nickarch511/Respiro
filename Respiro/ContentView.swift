@@ -376,7 +376,7 @@ struct HappinessBreath: View {
     @AppStorage("totalBreaths") var totalBreaths = 0
     @AppStorage("totalHappinessBreaths") var totalHappinessBreaths = 0
     
-    private let halfSecondsToFinishABreath = 0.5*15 // 8 breaths/min
+    private let breathsPerMinute = 60/(0.5*15) // 8 breaths/min
     private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var counter = 0
     let images = ["inbelly", "inchest", "inchest", "inchest", "inchest","hold","hold", "hold", "out", "out", "out", "out", "out","hold","hold"]
@@ -452,8 +452,7 @@ struct HappinessBreath: View {
                                 .onReceive(timer, perform: { _ in
                                     if startBreathing {
                                         if !clickedStartAlready {
-                                            onTimerTic(num_breaths: Int(sliderValue)*8)
-                                            
+                                            onTimerTic(num_breaths: Int(sliderValue)*Int(breathsPerMinute))
                                             
                                         }
                                     }
@@ -510,10 +509,10 @@ struct ConfidenceBreath: View {
     @AppStorage("totalBreaths") var totalBreaths = 0
     @AppStorage("totalConfidenceBreaths") var totalConfidenceBreaths = 0
     
-    private let halfSecondsToFinishABreath = 0.5*15 // 8 breaths/min
+    private let breathsPerMinute = 60/(0.5*15) // 3.75 breaths/min
     private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var counter = 0
-    let images = ["in", "in", "in", "in", "in","in","in", "in", "out", "out", "out", "out", "out","out","out"]
+    let images = ["in", "in", "in", "in", "in", "in", "in", "in", "out", "out", "out", "out", "out","out","out"]
     
     func onTimerTic(num_breaths: Int = 8) {
         let index = counter % (images.count)
@@ -585,7 +584,7 @@ struct ConfidenceBreath: View {
                                 .onReceive(timer, perform: { _ in
                                     if startBreathing {
                                         if !clickedStartAlready {
-                                            onTimerTic(num_breaths: Int(sliderValue)*8)
+                                            onTimerTic(num_breaths: Int(sliderValue)*Int(breathsPerMinute))
                                             
                                             
                                         }
@@ -643,7 +642,7 @@ struct BoxBreath: View {
     @AppStorage("totalBreaths") var totalBreaths = 0
     @AppStorage("totalBoxBreaths") var totalBoxBreaths = 0
     
-    private let halfSecondsToFinishABreath = 3.75 // 8 breaths/min
+    private let breathsPerMinute = 60/(0.5*32) // 3.75 breaths/min
     private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var counter = 0
     let images = ["in", "in", "in", "in", "in", "in", "in", "in", "hold","hold", "hold", "hold", "hold", "hold", "hold", "hold", "out", "out", "out", "out", "out","out","out", "out", "hold","hold", "hold", "hold", "hold", "hold", "hold", "hold"]
@@ -719,7 +718,7 @@ struct BoxBreath: View {
                                 .onReceive(timer, perform: { _ in
                                     if startBreathing {
                                         if !clickedStartAlready {
-                                            onTimerTic(num_breaths: Int(sliderValue)*8)
+                                            onTimerTic(num_breaths: Int(sliderValue)*Int(breathsPerMinute))
                                             
                                             
                                         }

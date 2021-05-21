@@ -13,12 +13,6 @@ struct InhaleApp: App {
     var body: some Scene {
         WindowGroup {
             MainScreen()
-            
-
         }
-        
-
-        
     }
-    
 }

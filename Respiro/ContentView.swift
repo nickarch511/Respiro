@@ -12,6 +12,23 @@ import UIKit
 typealias tuple = (str: String, num: Int)
 
 
+/*                  ** STEPS TO ADD A NEW BREATH STYLE **
+ *                  1) Create the button image and sound
+ *                  2) Copy the HappinessBreath struct and rename it
+ *                  3) Refactor the inside code by:
+ *                      i. adding an AppStorage variable corresponding to the number of time
+ *                         someone has clicked on the breath (and delete the happiness one)
+ *                      ii. editing the breathsPerMinute and images variables accordingly
+ *                  4) In the MainScreen struct, add another @State property and a corresponding 'else if'
+ *                  5) Add the button in the corresponding TabView, or make a new tag if none are open
+ *                  6) Go to the ProfileScreen struck and
+ *                      i. add the corresponding AppStorage variabe
+ *                      ii. in the VStack, add to the list_of_breath_tuples the ("<breathbutton>, <AppStorage-var>")
+ *                  7) Test and make sure it's working
+ *
+ */
+
+
 struct MainScreen: View {
     @State private var welcomeText = "Welcome to Inhale"
     @State private var goToHappinessBreathScreen = false
@@ -303,8 +320,8 @@ struct ProfileScreen: View {
                 VStack {
                     Text("most used breath: ").font(.custom("LiSong Pro", size: 30)).frame(alignment: .bottom).padding(-100)
                     
-                    let x = [("wimhofbutton", totalWimHofs), ("confiencebreath", totalConfidenceBreaths), ("happinessbutton", totalHappinessBreaths), ("boxbutton", totalBoxBreaths)]
-                    let max_breath = find_max_breath(x: x)
+                    let list_of_breath_tuples = [("wimhofbutton", totalWimHofs), ("confiencebreath", totalConfidenceBreaths), ("happinessbutton", totalHappinessBreaths), ("boxbutton", totalBoxBreaths)]
+                    let max_breath = find_max_breath(x: list_of_breath_tuples)
                     
                     GeometryReader { geo in
                         Image(max_breath)

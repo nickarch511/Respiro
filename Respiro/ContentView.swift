@@ -64,32 +64,6 @@ struct MainScreen: View {
                         ZStack {
                             TabView (selection: $selectedTab){
                                 ZStack {
-                                    GeometryReader { geo in
-                                        VStack {
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            HStack {
-                                                Spacer()
-                                                Image("rightarrow")
-                                                    .resizable()
-                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
-                                                    .padding(.trailing, -20.0)
-                                                    .padding(.leading, 100.0)
-                                                    .onTapGesture {
-                                                        self.selectedTab = 2
-                                                    }
-                                            }
-                                            
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            
-                                            
-                                        }
-                                    }
-                                    
                                     
                                     ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                                         
@@ -105,7 +79,7 @@ struct MainScreen: View {
                                                     Image("happinessbutton")
                                                         .resizable()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
                                                         .padding(.vertical, -50.0)
                                                     
                                                 }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -122,7 +96,7 @@ struct MainScreen: View {
                                                     Image("wimhofbutton")
                                                         .resizable()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
                                                         .padding(.vertical, -50.0)
                                                     
                                                     
@@ -144,7 +118,7 @@ struct MainScreen: View {
                                                     Image("confiencebreath")
                                                         .resizable()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
                                                         .padding(.vertical, -50.0)
                                                     
                                                     
@@ -160,39 +134,37 @@ struct MainScreen: View {
                                         }
                                     }
                                     
-                                }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
-                                .tag(1)
-                                
-                                ZStack {
                                     GeometryReader { geo in
                                         VStack {
                                             Spacer()
                                             Spacer()
                                             Spacer()
                                             Spacer()
-                                      
                                             HStack {
-                                                
-                                                Image("leftarrow")
-                                                    .resizable()
-                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
-                                                    .padding(.leading, -20.0)
-                                                    .padding(.trailing, 100.0)
-                                                    .onTapGesture {
-                                                        self.selectedTab = 1
-                                                    }
-                                                    
-                                                
                                                 Spacer()
+                                                Image("rightarrow")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
+                                                    .contentShape(Rectangle())
+                                                    .padding(.trailing, -15.0)
+                                                    .padding(.leading, 100.0)
+                                                    .onTapGesture {
+                                                        self.selectedTab = 2
+                                                    }
                                             }
                                             
                                             Spacer()
                                             Spacer()
                                             Spacer()
-                                            
-                                            
                                         }
                                     }
+                                    
+                                }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+                                .tag(1)
+                                
+                                ZStack {
+                                    
                                     ScrollView(.vertical, showsIndicators: false) {
                                         
                                         
@@ -207,7 +179,7 @@ struct MainScreen: View {
                                                     Image("boxbutton")
                                                         .resizable()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
                                                         .padding(.vertical, -50.0)
                                                     
                                                 }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -224,7 +196,7 @@ struct MainScreen: View {
                                                     Image("breathoffirebutton")
                                                         .resizable()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
                                                         .padding(.vertical, -50.0)
                                                     
                                                 }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -241,7 +213,7 @@ struct MainScreen: View {
                                                     Image("relaxingbreathbutton")
                                                         .resizable()
                                                         .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/2, height: geo.size.height/3, alignment: .center)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
                                                         .padding(.vertical, -50.0)
                                                     
                                                 }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -250,6 +222,36 @@ struct MainScreen: View {
                                            
                                             Spacer()
                                             Spacer()
+                                        }
+                                    }
+                                    
+                                    GeometryReader { geo in
+                                        VStack {
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                      
+                                            HStack {
+                                                Image("leftarrow")
+                                                    .resizable()
+                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
+                                                    .contentShape(Rectangle())
+                                                    .padding(.leading, -15.0)
+                                                    .padding(.trailing, -100.0)
+                                                    .onTapGesture {
+                                                        self.selectedTab = 1
+                                                    }
+                                                    
+                                                
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            
+                                            
                                         }
                                     }
                                     
@@ -440,7 +442,7 @@ struct HappinessBreath: View {
     @State private var currentBreathImg = "start"
     @State private var returnHome = false
     @State private var numBreathsTaken = 0
-    @State private var sliderValue = 1.0
+    @State private var sliderValue = 5.0
     @State private var startBreathing = false
     @State private var clickedStartAlready = false
     @AppStorage("totalBreaths") var totalBreaths = 0
@@ -472,7 +474,6 @@ struct HappinessBreath: View {
         }
         
         counter += 1
-        
     }
     
     var body: some View {
@@ -575,7 +576,7 @@ struct ConfidenceBreath: View {
     @State private var currentBreathImg = "start"
     @State private var returnHome = false
     @State private var numBreathsTaken = 0
-    @State private var sliderValue = 1.0
+    @State private var sliderValue = 5.0
     @State private var startBreathing = false
     @State private var clickedStartAlready = false
     @AppStorage("totalBreaths") var totalBreaths = 0
@@ -667,18 +668,11 @@ struct ConfidenceBreath: View {
                                     UIApplication.shared.isIdleTimerDisabled = true
                                 }
                         })
-                        
-                        
                         Spacer()
                         Spacer()
                         Spacer()
                         Spacer()
-                        
-                        
-                        
                         Spacer()
-                        
-                        
                         
                     }
                     VStack {
@@ -710,7 +704,7 @@ struct BoxBreath: View {
     @State private var currentBreathImg = "start"
     @State private var returnHome = false
     @State private var numBreathsTaken = 0
-    @State private var sliderValue = 1.0
+    @State private var sliderValue = 5.0
     @State private var startBreathing = false
     @State private var clickedStartAlready = false
     @AppStorage("totalBreaths") var totalBreaths = 0
@@ -770,8 +764,6 @@ struct BoxBreath: View {
                                     .font(.custom("LiSong Pro", size: 40))
                                 
                             }
-                            
-                            
                         })
                         Spacer()
                         
@@ -780,8 +772,6 @@ struct BoxBreath: View {
                         Spacer()
                         Spacer()
                         Spacer()
-                        
-                        
                         
                         Button(action: {
                             startBreathing = true
@@ -809,12 +799,7 @@ struct BoxBreath: View {
                         Spacer()
                         Spacer()
                         Spacer()
-                        
-                        
-                        
                         Spacer()
-                        
-                        
                         
                     }
                     VStack {
@@ -992,8 +977,6 @@ struct WimHofScreen: View {
             currentBreathImg = images[index]
         }
         
-        
-        
         // Increment counter with timer
         counter += 1
         
@@ -1037,10 +1020,6 @@ struct WimHofScreen: View {
                             .font(.system(size:60))
                     }
                     Spacer()
-                    
-                    
-                    
-                    
                 }
                 
                 
@@ -1055,7 +1034,7 @@ struct BreathOfFire: View {
     @State private var currentBreathImg = "start"
     @State private var returnHome = false
     @State private var numBreathsTaken = 0
-    @State private var sliderValue = 1.0
+    @State private var sliderValue = 5.0
     @State private var startBreathing = false
     @State private var clickedStartAlready = false
     @AppStorage("totalBreaths") var totalBreaths = 0
@@ -1126,8 +1105,6 @@ struct BreathOfFire: View {
                         Spacer()
                         Spacer()
                         
-                        
-                        
                         Button(action: {
                             startBreathing = true
                         }, label: {
@@ -1153,13 +1130,7 @@ struct BreathOfFire: View {
                         Spacer()
                         Spacer()
                         Spacer()
-                        
-                        
-                        
                         Spacer()
-                        
-                        
-                        
                     }
                     VStack {
                         Spacer()
@@ -1190,7 +1161,7 @@ struct RelaxingBreath: View {
     @State private var currentBreathImg = "start"
     @State private var returnHome = false
     @State private var numBreathsTaken = 0
-    @State private var sliderValue = 1.0
+    @State private var sliderValue = 5.0
     @State private var startBreathing = false
     @State private var clickedStartAlready = false
     @AppStorage("totalBreaths") var totalBreaths = 0
@@ -1261,8 +1232,6 @@ struct RelaxingBreath: View {
                         Spacer()
                         Spacer()
                         
-                        
-                        
                         Button(action: {
                             startBreathing = true
                         }, label: {
@@ -1288,12 +1257,7 @@ struct RelaxingBreath: View {
                         Spacer()
                         Spacer()
                         Spacer()
-                        
-                        
-                        
                         Spacer()
-                        
-                        
                         
                     }
                     VStack {

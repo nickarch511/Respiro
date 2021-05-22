@@ -287,7 +287,9 @@ struct MainScreen: View {
                                     Spacer()
                                 }
                                 
-                            }
+                            }.onAppear(perform: {
+                                UIApplication.shared.isIdleTimerDisabled = false
+                            })
                             
                             GeometryReader { innerGeo in
                                 Image("mainscreentopimage")
@@ -395,6 +397,7 @@ struct ProfileScreen: View {
                     ToolbarItemGroup(placement: .bottomBar) {
                         Spacer()
                         Button(action: {
+                            UIApplication.shared.isIdleTimerDisabled = false
                             goHome = true
                         }, label: {
                             Image(systemName: "house")
@@ -419,7 +422,7 @@ struct ProfileScreen: View {
                                 Image(systemName: "person")
                                     .font(.system(size: 25))
                                 
-                            })
+                            }).onAppear(perform: {UIApplication.shared.isIdleTimerDisabled = false})
                         }
                         Spacer()
                     }
@@ -427,7 +430,9 @@ struct ProfileScreen: View {
                 
             }
             
-        }
+        }.onAppear(perform: {
+            UIApplication.shared.isIdleTimerDisabled = false
+        })
     }
 }
 
@@ -462,6 +467,7 @@ struct HappinessBreath: View {
         if numBreathsTaken >= num_breaths {
             totalBreaths += numBreathsTaken
             numBreathsTaken = 0
+            UIApplication.shared.isIdleTimerDisabled = false
             returnHome = true
         }
         
@@ -546,6 +552,7 @@ struct HappinessBreath: View {
                             counter = 0
                             Player().stopPlaying()
                             totalBreaths += numBreathsTaken
+                            UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true
                             
                         }
@@ -595,6 +602,7 @@ struct ConfidenceBreath: View {
         if numBreathsTaken >= num_breaths {
             totalBreaths += numBreathsTaken
             numBreathsTaken = 0
+            UIApplication.shared.isIdleTimerDisabled = false
             returnHome = true
         }
         
@@ -679,6 +687,7 @@ struct ConfidenceBreath: View {
                             counter = 0
                             Player().stopPlaying()
                             totalBreaths += numBreathsTaken
+                            UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true
                             
                         }
@@ -728,6 +737,7 @@ struct BoxBreath: View {
         if numBreathsTaken >= num_breaths {
             totalBreaths += numBreathsTaken
             numBreathsTaken = 0
+            UIApplication.shared.isIdleTimerDisabled = false
             returnHome = true
         }
         
@@ -813,6 +823,7 @@ struct BoxBreath: View {
                             counter = 0
                             Player().stopPlaying()
                             totalBreaths += numBreathsTaken
+                            UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true
                             
                         }
@@ -948,6 +959,7 @@ struct WimHofScreen: View {
                         // check where to go next
                         if round_number >= num_rounds - 1 {
                             totalBreaths += breaths_in_round*round_number + breathcounter
+                            UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true
                             Player().stopPlaying()
                         } else {
@@ -1018,6 +1030,7 @@ struct WimHofScreen: View {
                             counter = 0
                             Player().stopPlaying()
                             totalBreaths += breaths_in_round*round_number + breathcounter
+                            UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true}
                     ) {
                         Image(systemName: "house")
@@ -1069,6 +1082,7 @@ struct BreathOfFire: View {
         if numBreathsTaken >= num_breaths {
             totalBreaths += numBreathsTaken
             numBreathsTaken = 0
+            UIApplication.shared.isIdleTimerDisabled = false
             returnHome = true
         }
         
@@ -1153,6 +1167,7 @@ struct BreathOfFire: View {
                             counter = 0
                             Player().stopPlaying()
                             totalBreaths += numBreathsTaken
+                            UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true
                             
                         }
@@ -1202,6 +1217,7 @@ struct RelaxingBreath: View {
         if numBreathsTaken >= num_breaths {
             totalBreaths += numBreathsTaken
             numBreathsTaken = 0
+            UIApplication.shared.isIdleTimerDisabled = false
             returnHome = true
         }
         
@@ -1286,6 +1302,7 @@ struct RelaxingBreath: View {
                             counter = 0
                             Player().stopPlaying()
                             totalBreaths += numBreathsTaken
+                            UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true
                             
                         }

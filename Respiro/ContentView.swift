@@ -38,6 +38,7 @@ struct MainScreen: View {
     @State private var goToBoxBreathScreen = false
     @State private var goToFireScreen = false
     @State private var goToRelaxingBreathScreen = false
+    @State private var goToFocusBreathScreen = false
     @State private var selectedTab = 1
     var body: some View {
         
@@ -59,13 +60,14 @@ struct MainScreen: View {
                     BreathOfFire()
                 } else if goToRelaxingBreathScreen {
                     RelaxingBreath()
+                } else if goToFocusBreathScreen {
+                    FocusBreath()
                 } else {
                     VStack {
                         ZStack {
                             TabView (selection: $selectedTab){
                                 ZStack {
                                     ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-                                        
                                         VStack {
                                             Spacer(minLength: geo.size.height/2.5)
                                             GeometryReader { innerGeo in
@@ -283,6 +285,104 @@ struct MainScreen: View {
                                 }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
                                 .tag(2)
                                 
+                                ZStack {
+                                    ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
+                                        
+                                        VStack {
+                                            Spacer(minLength: geo.size.height/2.5)
+                                            GeometryReader { innerGeo in
+                                                Button(action: {
+                                                    goToFocusBreathScreen.toggle()
+                                                    
+                                                }) {
+                                                    
+                                                    Image("focusbreath")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
+                                                        .padding(.vertical, -50.0)
+                                                    
+                                                }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            }
+                                            
+                                            Spacer(minLength: 50)
+                                            
+                                            /*GeometryReader { innerGeo in
+                                                Button(action: {
+                                                    goToWimHofScreen.toggle()
+                                                    
+                                                }) {
+                                                    
+                                                    Image("wimhofbutton")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
+                                                        .padding(.vertical, -50.0)
+                                                    
+                                                    
+                                                }
+                                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                                .frame(width: innerGeo.size.width)
+                                                
+                                                
+                                            }
+                                            
+                                            Spacer(minLength: geo.size.height/6.25)
+                                            
+                                            GeometryReader { innerGeo in
+                                                Button(action: {
+                                                    goToConfidenceBreathScreen.toggle()
+                                                    
+                                                }) {
+                                                    
+                                                    Image("confiencebreath")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
+                                                        .padding(.vertical, -50.0)
+                                                    
+                                                    
+                                                }
+                                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                                .frame(width: innerGeo.size.width)
+                                                
+                                                
+                                            }*/
+                                            
+                                            Spacer()
+                                            Spacer()
+                                        }
+                                    }
+                                    
+                                    GeometryReader { geo in
+                                        VStack {
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            HStack {
+                                                Image("leftarrow")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
+                                                    .contentShape(Rectangle())
+                                                    .padding(.trailing, 100.0)
+                                                    .padding(.leading, -15.0)
+                                                    .onTapGesture {
+                                                        self.selectedTab = 2
+                                                    }
+                                                Spacer()
+                                            }
+                                            
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                        }
+                                    }
+                                    
+                                }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
+                                .tag(3)
+                                
                             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                             
                             Spacer().toolbar {
@@ -358,6 +458,7 @@ struct ProfileScreen: View {
     @AppStorage("totalBoxBreaths") var totalBoxBreaths = 0
     @AppStorage("totalBreathOfFire") var totalBreathOfFire = 0
     @AppStorage("totalRelaxingBreaths") var totalRelaxingBreaths = 0
+    @AppStorage("totalFocusBreaths") var totalFocusBreaths = 0
     
     private func find_max_breath(x: [tuple]) -> String {
         var max_breaths_count = 0
@@ -397,7 +498,7 @@ struct ProfileScreen: View {
                 VStack {
                     Text("most used breath: ").font(.custom("LiSong Pro", size: 30)).frame(alignment: .bottom).padding(-100)
                     
-                    let list_of_breath_tuples = [("wimhofbutton", totalWimHofs), ("confiencebreath", totalConfidenceBreaths), ("happinessbutton", totalHappinessBreaths), ("boxbutton", totalBoxBreaths), ("breathoffirebutton", totalBreathOfFire), ("relaxingbreathbutton", totalRelaxingBreaths)]
+                    let list_of_breath_tuples = [("wimhofbutton", totalWimHofs), ("confiencebreath", totalConfidenceBreaths), ("happinessbutton", totalHappinessBreaths), ("boxbutton", totalBoxBreaths), ("breathoffirebutton", totalBreathOfFire), ("relaxingbreathbutton", totalRelaxingBreaths), ("focusbreath", totalFocusBreaths)]
                     let max_breath = find_max_breath(x: list_of_breath_tuples)
                     
                     GeometryReader { geo in
@@ -1309,6 +1410,148 @@ struct RelaxingBreath: View {
     }
     
 }
+
+struct FocusBreath: View {
+    @State private var currentBreathImg = "start"
+    @State private var returnHome = false
+    @State private var numBreathsTaken = 0
+    @State private var sliderValue = 5.0
+    @State private var startBreathing = false
+    @State private var clickedStartAlready = false
+    @AppStorage("totalBreaths") var totalBreaths = 0
+    @AppStorage("totalFocusBreaths") var totalFocusBreaths = 0
+    
+    private let breathsPerMinute = 60/(0.5*20) // 6 breaths/min
+    private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    @State var counter = 0
+    let images = ["inright", "inright", "inright", "inright", "inright","inright", "inright", "inright", "inright", "inright", "inright", "inright", "outleft","outleft", "outleft", "outleft", "outleft", "outleft", "outleft", "outleft","outleft","outleft","outleft","outleft"]
+    
+    let images2 = ["inleft", "inleft", "inleft", "inleft", "inleft","inleft", "inleft", "inleft", "inleft", "inleft", "inleft", "inleft", "outright","outright", "outright", "outright", "outright", "outright", "outright", "outright","outright","outright","outright","outright"]
+    
+    func onTimerTic(num_breaths: Int = 8) {
+        let index = counter % (images.count)
+        if (counter % (images.count)) == 0 {
+            print("going to play sound")
+            Player().playSound(sound: "focusbreath", type: "mp3")
+            
+        }
+        
+        if numBreathsTaken % 2 == 0 {
+            currentBreathImg = images[index]
+        } else {
+            currentBreathImg = images2[index]
+        }
+        
+        if (counter % (images.count)) == images.count - 1 {
+            numBreathsTaken += 1
+            
+        }
+        if numBreathsTaken >= num_breaths {
+            totalBreaths += numBreathsTaken
+            numBreathsTaken = 0
+            UIApplication.shared.isIdleTimerDisabled = false
+            returnHome = true
+        }
+        
+        counter += 1
+    }
+    
+    var body: some View {
+        VStack {
+            if returnHome {
+                MainScreen()
+            } else {
+                ZStack {
+                    VStack {
+                        Slider(value: $sliderValue, in: 1...10) {
+                        }.padding().frame(width: 350, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        
+                        Button(action: {
+                            if !clickedStartAlready {
+                                startBreathing = true
+                                clickedStartAlready = true
+                            }
+                        }, label: {
+                            
+                            if sliderValue < 2 {
+                                Text(String(Int(sliderValue)) + " minute")
+                                    .font(.custom("LiSong Pro", size: 40))
+                            } else {
+                                Text(String(Int(sliderValue)) + " minutes")
+                                    .font(.custom("LiSong Pro", size: 40))
+                                
+                            }
+                            
+                            
+                        })
+                        Spacer()
+                        
+                    }
+                    VStack {
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        
+                        
+                        
+                        Button(action: {
+                            startBreathing = true
+                        }, label: {
+                            Image(currentBreathImg)
+                                .resizable()
+                                .frame(width: 500, height: 500)
+                                .animation(.easeInOut)
+                                .onReceive(timer, perform: { _ in
+                                    if startBreathing {
+                                        if !clickedStartAlready {
+                                            onTimerTic(num_breaths: Int(sliderValue)*Int(breathsPerMinute))
+                                            
+                                        }
+                                    }
+                                }).onAppear {
+                                    totalFocusBreaths += 1
+                                    UIApplication.shared.isIdleTimerDisabled = true
+                                }
+                        })
+                        
+                        
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        
+                        
+                        
+                        Spacer()
+                        
+                        
+                        
+                    }
+                    VStack {
+                        Spacer()
+                        Button(action: {
+                            counter = 0
+                            Player().stopPlaying()
+                            totalBreaths += numBreathsTaken
+                            UIApplication.shared.isIdleTimerDisabled = false
+                            returnHome = true
+                            
+                        }
+                        ) {
+                            Image(systemName: "house")
+                                .font(.system(size:60))
+                        }.frame(alignment: .bottom)
+                        
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
+                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            }
+        }
+        
+    }
+    
+}
+
 
 
 struct ContentView_Previews: PreviewProvider {

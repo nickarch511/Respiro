@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F2056F7B265B0DC500A78DF2 /* focusbreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2056F7A265B0DC500A78DF2 /* focusbreath.mp3 */; };
 		F20C80EB26583D9500575C00 /* breathoffire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F20C80EA26583D9500575C00 /* breathoffire.mp3 */; };
 		F20C80ED26587A1F00575C00 /* relaxbreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F20C80EC26587A1F00575C00 /* relaxbreath.mp3 */; };
 		F2196240264F20B60002BC36 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F219623F264F20B60002BC36 /* PlaySound.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F2056F7A265B0DC500A78DF2 /* focusbreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = focusbreath.mp3; path = myitems/sounds/focusbreath.mp3; sourceTree = "<group>"; };
 		F20C80EA26583D9500575C00 /* breathoffire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = breathoffire.mp3; path = myitems/sounds/breathoffire.mp3; sourceTree = "<group>"; };
 		F20C80EC26587A1F00575C00 /* relaxbreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = relaxbreath.mp3; path = myitems/sounds/relaxbreath.mp3; sourceTree = "<group>"; };
 		F219623F264F20B60002BC36 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				F266142E265169CD00DFF8E3 /* 4inhold4outhold.mp3 */,
 				F266143C2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 */,
+				F2056F7A265B0DC500A78DF2 /* focusbreath.mp3 */,
 				F266144026530B3300DFF8E3 /* confidencebreath.mp3 */,
 				F266142F265169CD00DFF8E3 /* 15in15outbreath.mp3 */,
 				F20C80EC26587A1F00575C00 /* relaxbreath.mp3 */,
@@ -244,6 +247,7 @@
 				F2661436265169CE00DFF8E3 /* wimhof-v2.mp3 in Resources */,
 				F264880D264EAFC300B5BA5A /* Assets.xcassets in Resources */,
 				F266143D2652A97D00DFF8E3 /* wimhof-firsthalf.mp3 in Resources */,
+				F2056F7B265B0DC500A78DF2 /* focusbreath.mp3 in Resources */,
 				F2661433265169CE00DFF8E3 /* 4inhold4outhold.mp3 in Resources */,
 				F266143B2652A7B400DFF8E3 /* wimhofv4.mp3 in Resources */,
 				F20C80ED26587A1F00575C00 /* relaxbreath.mp3 in Resources */,

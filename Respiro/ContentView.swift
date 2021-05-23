@@ -64,9 +64,7 @@ struct MainScreen: View {
                         ZStack {
                             TabView (selection: $selectedTab){
                                 ZStack {
-                                    
                                     ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-                                        
                                         
                                         VStack {
                                             Spacer(minLength: geo.size.height/2.5)
@@ -252,6 +250,33 @@ struct MainScreen: View {
                                             Spacer()
                                             
                                             
+                                        }
+                                    }
+                                    
+                                    GeometryReader { geo in
+                                        VStack {
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            
+                                            HStack {
+                                                Spacer()
+                                                Image("rightarrow")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
+                                                    .contentShape(Rectangle())
+                                                    .padding(.trailing, -15.0)
+                                                    .padding(.leading, 100.0)
+                                                    .onTapGesture {
+                                                        self.selectedTab = 3
+                                                    }
+                                            }
+                                            
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
                                         }
                                     }
                                     

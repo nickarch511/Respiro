@@ -40,8 +40,8 @@ struct MainScreen: View {
     @State private var goToRelaxingBreathScreen = false
     @State private var goToFocusBreathScreen = false
     @State private var selectedTab = 1
+    
     var body: some View {
-        
         GeometryReader { geo in
             
             VStack() {
@@ -219,7 +219,6 @@ struct MainScreen: View {
                                                 }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                             }
                                             
-                                           
                                             Spacer()
                                             Spacer()
                                         }

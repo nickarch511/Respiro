@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F2056F7B265B0DC500A78DF2 /* focusbreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2056F7A265B0DC500A78DF2 /* focusbreath.mp3 */; };
+		F2056FA2265C292600A78DF2 /* BreathModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2056FA1265C292600A78DF2 /* BreathModel.swift */; };
+		F2056FA4265C293100A78DF2 /* Breath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2056FA3265C293100A78DF2 /* Breath.swift */; };
 		F20C80EB26583D9500575C00 /* breathoffire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F20C80EA26583D9500575C00 /* breathoffire.mp3 */; };
 		F20C80ED26587A1F00575C00 /* relaxbreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F20C80EC26587A1F00575C00 /* relaxbreath.mp3 */; };
 		F2196240264F20B60002BC36 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F219623F264F20B60002BC36 /* PlaySound.swift */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		F2056F7A265B0DC500A78DF2 /* focusbreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = focusbreath.mp3; path = myitems/sounds/focusbreath.mp3; sourceTree = "<group>"; };
+		F2056FA1265C292600A78DF2 /* BreathModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathModel.swift; sourceTree = "<group>"; };
+		F2056FA3265C293100A78DF2 /* Breath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breath.swift; sourceTree = "<group>"; };
 		F20C80EA26583D9500575C00 /* breathoffire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = breathoffire.mp3; path = myitems/sounds/breathoffire.mp3; sourceTree = "<group>"; };
 		F20C80EC26587A1F00575C00 /* relaxbreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = relaxbreath.mp3; path = myitems/sounds/relaxbreath.mp3; sourceTree = "<group>"; };
 		F219623F264F20B60002BC36 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
@@ -82,6 +86,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F2056F9E265C278F00A78DF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F264880A264EAFC300B5BA5A /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F2056F9F265C279900A78DF2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2056FA3265C293100A78DF2 /* Breath.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F2056FA0265C279E00A78DF2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F2056FA1265C292600A78DF2 /* BreathModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		F26487FC264EAFC300B5BA5A = {
 			isa = PBXGroup;
 			children = (
@@ -115,9 +143,11 @@
 		F2648807264EAFC300B5BA5A /* Respiro */ = {
 			isa = PBXGroup;
 			children = (
+				F2056FA0265C279E00A78DF2 /* ViewModels */,
+				F2056F9F265C279900A78DF2 /* Models */,
+				F2056F9E265C278F00A78DF2 /* Views */,
 				F26614422653405B00DFF8E3 /* Fonts */,
 				F2648808264EAFC300B5BA5A /* InhaleApp.swift */,
-				F264880A264EAFC300B5BA5A /* ContentView.swift */,
 				F219623F264F20B60002BC36 /* PlaySound.swift */,
 				F264880C264EAFC300B5BA5A /* Assets.xcassets */,
 				F2648811264EAFC300B5BA5A /* Info.plist */,
@@ -271,9 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2056FA4265C293100A78DF2 /* Breath.swift in Sources */,
 				F264880B264EAFC300B5BA5A /* ContentView.swift in Sources */,
 				F2196240264F20B60002BC36 /* PlaySound.swift in Sources */,
 				F2648809264EAFC300B5BA5A /* InhaleApp.swift in Sources */,
+				F2056FA2265C292600A78DF2 /* BreathModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

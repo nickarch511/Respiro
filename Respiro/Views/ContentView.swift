@@ -65,7 +65,7 @@ struct MainScreen: View {
                 } else {
                     VStack {
                         ZStack {
-                            TabView (selection: $selectedTab){
+                            TabView (selection: $selectedTab) {
                                 ZStack {
                                     ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
                                         VStack {
@@ -383,8 +383,7 @@ struct MainScreen: View {
                                 .tag(3)
                                 
                             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                            
-                            Spacer().toolbar {
+                            .toolbar {
                                 
                                 // Code for Toolbar at bottom of screen
                                 ToolbarItemGroup(placement: .bottomBar) {
@@ -416,6 +415,8 @@ struct MainScreen: View {
                             }.onAppear(perform: {
                                 UIApplication.shared.isIdleTimerDisabled = false
                             })
+                            
+                            
                             
                             GeometryReader { innerGeo in
                                 Image("mainscreentopimage")

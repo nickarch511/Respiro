@@ -40,6 +40,7 @@ struct MainScreen: View {
     @State private var goToRelaxingBreathScreen = false
     @State private var goToFocusBreathScreen = false
     @State private var selectedTab = 1
+    let breathModel = BreathModel() // this is the ViewModel that gives our View access to the stored user data
     
     var body: some View {
         GeometryReader { geo in

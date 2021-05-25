@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Breath : Identifiable, Decodable {
+struct Breath : Identifiable, Decodable, Encodable {
     var typeOfBreath : String
     var date : Date
     var time : Int // will be a number between 1 and 24 for simplicity

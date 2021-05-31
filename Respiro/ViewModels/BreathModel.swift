@@ -13,6 +13,7 @@ class BreathModel : ObservableObject {
     @Published var breathHash = [String:Int]()
     
     init() {
+        print("Starting JSON init")
         let path = Bundle.main.path(forResource: "breathstats", ofType: "json")
         if let path = path {
             let url = URL(fileURLWithPath: path)
@@ -48,7 +49,6 @@ class BreathModel : ObservableObject {
                 print(error)
             }
         }
-        
         
     }
     
@@ -94,12 +94,17 @@ class BreathModel : ObservableObject {
                         print(error)
                     }
                 }
+                print(json_contents)
+                
             } catch {
                 print(error)
             }
                 
             
         }
+        
+        
+        
     }
     
     

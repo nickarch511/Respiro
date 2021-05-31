@@ -10,14 +10,14 @@ import Foundation
 
 struct Breath : Identifiable, Decodable, Encodable {
     var typeOfBreath : String
-    var date : Date
-    var time : Int // will be a number between 1 and 24 for simplicity
+    var numBreaths : Int
+    var date : DateComponents
     var id:UUID? = UUID() // for identifiable protocol
     
-    init(typeOfBreath:String, date:Date, time:Int) {
+    init(typeOfBreath:String, numBreaths:Int, date:DateComponents) {
         self.typeOfBreath = typeOfBreath
         self.date = date
-        self.time = time
+        self.numBreaths = numBreaths
     }
     
 }

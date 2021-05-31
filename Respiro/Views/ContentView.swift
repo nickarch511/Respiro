@@ -39,14 +39,10 @@ struct MainScreen: View {
     @State private var goToFireScreen = false
     @State private var goToRelaxingBreathScreen = false
     @State private var goToFocusBreathScreen = false
-    @State private var selectedTab = 1
-    let breathModel = BreathModel() // this is the ViewModel that gives our View access to the stored user data
     
     var body: some View {
         GeometryReader { geo in
-            
             VStack() {
-                
                 if goToHappinessBreathScreen {
                     HappinessBreath()
                 } else if goToWimHofScreen {
@@ -66,371 +62,139 @@ struct MainScreen: View {
                 } else {
                     VStack {
                         ZStack {
-                            TabView (selection: $selectedTab) {
-                                ZStack {
-                                    ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-                                        VStack {
-                                            Spacer(minLength: geo.size.height/2.5)
-                                            GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToHappinessBreathScreen.toggle()
-                                                    
-                                                }) {
-                                                    
-                                                    Image("happinessbutton")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            }
+                            ZStack {
+                                ScrollView(showsIndicators: false) {
+                                    let ratio = geo.size.height/geo.size.width
+                                    let buttonWidth = geo.size.height/(1.1*ratio)
+                                    // make the spacing dependent on the ratio of height to width. The higher the ratio, the large the height will be divided by.
+                                    Rectangle().frame(height: geo.size.height/(1.8*ratio)).opacity(0)
+                                    VStack {
+                                        Button(action: {
+                                            goToHappinessBreathScreen.toggle()
                                             
-                                            Spacer(minLength: 50)
-                                            
-                                            GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToWimHofScreen.toggle()
-                                                    
-                                                }) {
-                                                    
-                                                    Image("wimhofbutton")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                    
-                                                }
-                                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                                .frame(width: innerGeo.size.width)
-                                                
-                                                
-                                            }
-                                            
-                                            Spacer(minLength: geo.size.height/6.25)
-                                            
-                                            GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToConfidenceBreathScreen.toggle()
-                                                    
-                                                }) {
-                                                    
-                                                    Image("confiencebreath")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                    
-                                                }
-                                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                                .frame(width: innerGeo.size.width)
-                                                
-                                                
-                                            }
-                                            
-                                            Spacer()
-                                            Spacer()
-                                        }
-                                    }
-                                    
-                                    GeometryReader { geo in
-                                        VStack {
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            HStack {
-                                                Spacer()
-                                                Image("rightarrow")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
-                                                    .contentShape(Rectangle())
-                                                    .padding(.trailing, -15.0)
-                                                    .padding(.leading, 100.0)
-                                                    .onTapGesture {
-                                                        self.selectedTab = 2
-                                                    }
-                                            }
-                                            
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                        }
-                                    }
-                                    
-                                }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
-                                .tag(1)
-                                
-                                ZStack {
-                                    
-                                    ScrollView(.vertical, showsIndicators: false) {
-                                        
-                                        
-                                        VStack {
-                                            Spacer(minLength: geo.size.height/2.5)
-                                            GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToBoxBreathScreen.toggle()
-                                                    
-                                                }) {
-                                                    
-                                                    Image("boxbutton")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            }
-                                            
-                                            Spacer(minLength: geo.size.height/6.25)
-                                            
-                                            GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToFireScreen.toggle()
-                                                    
-                                                }) {
-                                                    
-                                                    Image("breathoffirebutton")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            }
-                                            
-                                            Spacer(minLength: geo.size.height/6.25)
-                                            
-                                            GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToRelaxingBreathScreen.toggle()
-                                                    
-                                                }) {
-
-                                                    Image("relaxingbreathbutton")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            }
-                                            
-                                            Spacer()
-                                            Spacer()
-                                        }
-                                    }
-                                    
-                                    GeometryReader { geo in
-                                        VStack {
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                      
-                                            HStack {
-                                                Image("leftarrow")
-                                                    .resizable()
-                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
-                                                    .contentShape(Rectangle())
-                                                    .padding(.leading, -15.0)
-                                                    .padding(.trailing, -100.0)
-                                                    .onTapGesture {
-                                                        self.selectedTab = 1
-                                                    }
-                                                    
-                                                
-                                                Spacer()
-                                            }
-                                            
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            
+                                        }) {
+                                            Image("happinessbutton")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                             
                                         }
-                                    }
-                                    
-                                    GeometryReader { geo in
-                                        VStack {
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            
-                                            HStack {
-                                                Spacer()
-                                                Image("rightarrow")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
-                                                    .contentShape(Rectangle())
-                                                    .padding(.trailing, -15.0)
-                                                    .padding(.leading, 100.0)
-                                                    .onTapGesture {
-                                                        self.selectedTab = 3
-                                                    }
-                                            }
-                                            
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                        }
-                                    }
-                                    
-                                }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
-                                .tag(2)
-                                
-                                ZStack {
-                                    ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-                                        
-                                        VStack {
-                                            Spacer(minLength: geo.size.height/2.5)
-                                            GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToFocusBreathScreen.toggle()
-                                                    
-                                                }) {
-                                                    
-                                                    Image("focusbreath")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                }.frame(width: innerGeo.size.width, height: innerGeo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            }
-                                            
-                                            Spacer(minLength: 50)
-                                            
-                                            /*GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToWimHofScreen.toggle()
-                                                    
-                                                }) {
-                                                    
-                                                    Image("wimhofbutton")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                    
-                                                }
-                                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                                .frame(width: innerGeo.size.width)
-                                                
-                                                
-                                            }
-                                            
-                                            Spacer(minLength: geo.size.height/6.25)
-                                            
-                                            GeometryReader { innerGeo in
-                                                Button(action: {
-                                                    goToConfidenceBreathScreen.toggle()
-                                                    
-                                                }) {
-                                                    
-                                                    Image("confiencebreath")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: geo.size.width/1.4, height: geo.size.height/3, alignment: .center)
-                                                        .padding(.vertical, -50.0)
-                                                    
-                                                    
-                                                }
-                                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                                .frame(width: innerGeo.size.width)
-                                                
-                                                
-                                            }*/
-                                            
-                                            Spacer()
-                                            Spacer()
-                                        }
-                                    }
-                                    
-                                    GeometryReader { geo in
-                                        VStack {
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            HStack {
-                                                Image("leftarrow")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                                                    .frame(width: geo.size.width/6, height: geo.size.height/7)
-                                                    .contentShape(Rectangle())
-                                                    .padding(.trailing, 100.0)
-                                                    .padding(.leading, -15.0)
-                                                    .onTapGesture {
-                                                        self.selectedTab = 2
-                                                    }
-                                                Spacer()
-                                            }
-                                            
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                        }
-                                    }
-                                    
-                                }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
-                                .tag(3)
-                                
-                            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                            .toolbar {
-                                
-                                // Code for Toolbar at bottom of screen
-                                ToolbarItemGroup(placement: .bottomBar) {
-                                    Spacer()
-                                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                                        Image(systemName: "house")
-                                            .font(.system(size: 50))
-                                    })
-                                    Spacer()
-                                    Spacer()
-                                    HStack {
-                                        Spacer()
-                                        Spacer()
-                                        Spacer()
-                                        Spacer()
-                                        Spacer()
                                         
                                         Button(action: {
-                                            goToProfileScreen = true
-                                        }, label: {
-                                            Image(systemName: "person")
-                                                .font(.system(size: 25))
+                                            goToWimHofScreen.toggle()
                                             
-                                        })
+                                        }) {
+                                            Image("wimhofbutton")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            
+                                        }
+                                        
+                                        Button(action: {
+                                            goToHappinessBreathScreen.toggle()
+                                            
+                                        }) {
+                                            Image("confiencebreath")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            
+                                        }
+                                        
+                                        Button(action: {
+                                            goToBoxBreathScreen.toggle()
+                                            
+                                        }) {
+                                            Image("boxbutton")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            
+                                        }
+                                        
+                                        Button(action: {
+                                            goToFireScreen.toggle()
+                                            
+                                        }) {
+                                            Image("breathoffirebutton")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            
+                                        }
+                                        
+                                        Button(action: {
+                                            goToRelaxingBreathScreen.toggle()
+                                            
+                                        }) {
+                                            Image("relaxingbreathbutton")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            
+                                        }
+                                        
+                                        Button(action: {
+                                            goToFocusBreathScreen.toggle()
+                                            
+                                        }) {
+                                            Image("focusbreath")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                            
+                                        }
+                                        
+                                        Rectangle().frame(height: geo.size.height/(3.5*ratio)).opacity(0)
+                                        
                                     }
-                                    Spacer()
+                                    
+                                }
+                                .toolbar {
+                                    
+                                    // Code for Toolbar at bottom of screen
+                                    ToolbarItemGroup(placement: .bottomBar) {
+                                        Spacer()
+                                        Button(action: {
+                                            
+                                        }, label: {
+                                            Image(systemName: "house")
+                                                .font(.system(size: 50))
+                                        })
+                                        Spacer()
+                                        Spacer()
+                                        HStack {
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            Spacer()
+                                            
+                                            Button(action: {
+                                                goToProfileScreen = true
+                                            }, label: {
+                                                Image(systemName: "person")
+                                                    .font(.system(size: 25))
+                                                
+                                            })
+                                        }
+                                        Spacer()
+                                    }
                                 }
                                 
-                            }.onAppear(perform: {
-                                UIApplication.shared.isIdleTimerDisabled = false
-                            })
+                            }
                             
-                            
-                            
-                            GeometryReader { innerGeo in
-                                Image("mainscreentopimage")
-                                    .resizable(resizingMode: .stretch)
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: innerGeo.size.width,
-                                           height: innerGeo.size.height,
-                                           alignment: .top)
-                                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                                
-                                
-                            }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            GeometryReader { geo in
+                            Image("mainscreentopimage")
+                                .resizable(resizingMode: .stretch)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geo.size.width,
+                                       height: geo.size.height,
+                                       alignment: .top)
+                                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                                .clipped()
+                            }.edgesIgnoringSafeArea(.all)
                             
                             
                         }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -443,7 +207,8 @@ struct MainScreen: View {
                 }
             }.frame(width: geo.size.width, height: geo.size.height, alignment: .center)
             
-        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/,  maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+        
         
     }
 }
@@ -460,6 +225,7 @@ struct ProfileScreen: View {
     @AppStorage("totalBreathOfFire") var totalBreathOfFire = 0
     @AppStorage("totalRelaxingBreaths") var totalRelaxingBreaths = 0
     @AppStorage("totalFocusBreaths") var totalFocusBreaths = 0
+    let breathModel = BreathModel() // this is the ViewModel that gives our View access to the stored user data
     
     private func find_max_breath(x: [tuple]) -> String {
         var max_breaths_count = 0
@@ -580,6 +346,8 @@ struct HappinessBreath: View {
     @State var counter = 0
     let images = ["inbelly", "inchest", "inchest", "inchest", "inchest","hold","hold", "hold", "out", "out", "out", "out", "out","hold","hold"]
     
+    let breathModel = BreathModel() // this is the ViewModel that gives our View access to the stored user data
+    
     func onTimerTic(num_breaths: Int = 8) {
         let index = counter % (images.count)
         if (counter % (images.count)) == 0 {
@@ -634,6 +402,7 @@ struct HappinessBreath: View {
                         Spacer()
                         
                     }
+                    
                     VStack {
                         Spacer()
                         Spacer()
@@ -680,6 +449,20 @@ struct HappinessBreath: View {
                             counter = 0
                             Player().stopPlaying()
                             totalBreaths += numBreathsTaken
+                            
+                            if breathModel.breathHash["happiness"] == nil {
+                                breathModel.breathHash["happiness"] = 1
+                            } else {
+                                breathModel.breathHash["happiness"]! += 1
+                            }
+                            
+                            let myCalendar = Calendar(identifier: .gregorian)
+                            let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
+                            
+                            let thisBreath = Breath(typeOfBreath: "happiness", numBreaths: numBreathsTaken, date: ymd)
+                            breathModel.breaths.append(thisBreath)
+                            breathModel.write_to_json()
+                            
                             UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true
                             
@@ -688,10 +471,8 @@ struct HappinessBreath: View {
                             Image(systemName: "house")
                                 .font(.system(size:60))
                         }.frame(alignment: .bottom)
-                        
-                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    
-                }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    }
+                }
             }
         }
         

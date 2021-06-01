@@ -62,127 +62,132 @@ struct MainScreen: View {
                 } else {
                     VStack {
                         ZStack {
-                            ZStack {
-                                ScrollView(showsIndicators: false) {
-                                    let ratio = geo.size.height/geo.size.width
-                                    let buttonWidth = geo.size.height/(1.1*ratio)
-                                    // make the spacing dependent on the ratio of height to width. The higher the ratio, the large the height will be divided by.
-                                    Rectangle().frame(height: geo.size.height/(1.8*ratio)).opacity(0)
-                                    VStack {
-                                        Button(action: {
-                                            goToHappinessBreathScreen.toggle()
-                                            
-                                        }) {
-                                            Image("happinessbutton")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width: buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            
-                                        }
-                                        
-                                        Button(action: {
-                                            goToWimHofScreen.toggle()
-                                            
-                                        }) {
-                                            Image("wimhofbutton")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width: buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            
-                                        }
-                                        
-                                        Button(action: {
-                                            goToHappinessBreathScreen.toggle()
-                                            
-                                        }) {
-                                            Image("confiencebreath")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            
-                                        }
-                                        
-                                        Button(action: {
-                                            goToBoxBreathScreen.toggle()
-                                            
-                                        }) {
-                                            Image("boxbutton")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            
-                                        }
-                                        
-                                        Button(action: {
-                                            goToFireScreen.toggle()
-                                            
-                                        }) {
-                                            Image("breathoffirebutton")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            
-                                        }
-                                        
-                                        Button(action: {
-                                            goToRelaxingBreathScreen.toggle()
-                                            
-                                        }) {
-                                            Image("relaxingbreathbutton")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            
-                                        }
-                                        
-                                        Button(action: {
-                                            goToFocusBreathScreen.toggle()
-                                            
-                                        }) {
-                                            Image("focusbreath")
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                            
-                                        }
-                                        
-                                        Rectangle().frame(height: geo.size.height/(3.5*ratio)).opacity(0)
-                                        
-                                    }
-                                    
-                                }
-                                .toolbar {
-                                    
-                                    // Code for Toolbar at bottom of screen
-                                    ToolbarItemGroup(placement: .bottomBar) {
-                                        Spacer()
-                                        Button(action: {
-                                            
-                                        }, label: {
-                                            Image(systemName: "house")
-                                                .font(.system(size: 50))
-                                        })
-                                        Spacer()
-                                        Spacer()
-                                        HStack {
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
-                                            Spacer()
+                            NavigationView {
+                                ZStack {
+                                    ScrollView(showsIndicators: false) {
+                                        let ratio = geo.size.height/geo.size.width
+                                        let buttonWidth = geo.size.height/(1.1*ratio)
+                                        // make the spacing dependent on the ratio of height to width. The higher the ratio, the large the height will be divided by.
+                                        Rectangle().frame(height: geo.size.height/(1.8*ratio)).opacity(0)
+                                        VStack {
+                                            Button(action: {
+                                                goToHappinessBreathScreen.toggle()
+                                                
+                                            }) {
+                                                Image("happinessbutton")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(width: buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                
+                                            }
                                             
                                             Button(action: {
-                                                goToProfileScreen = true
-                                            }, label: {
-                                                Image(systemName: "person")
-                                                    .font(.system(size: 25))
+                                                goToWimHofScreen.toggle()
                                                 
-                                            })
+                                            }) {
+                                                Image("wimhofbutton")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(width: buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                
+                                            }
+                                            
+                                            Button(action: {
+                                                goToHappinessBreathScreen.toggle()
+                                                
+                                            }) {
+                                                Image("confiencebreath")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                
+                                            }
+                                            
+                                            Button(action: {
+                                                goToBoxBreathScreen.toggle()
+                                                
+                                            }) {
+                                                Image("boxbutton")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                
+                                            }
+                                            
+                                            Button(action: {
+                                                goToFireScreen.toggle()
+                                                
+                                            }) {
+                                                Image("breathoffirebutton")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                
+                                            }
+                                            
+                                            Button(action: {
+                                                goToRelaxingBreathScreen.toggle()
+                                                
+                                            }) {
+                                                Image("relaxingbreathbutton")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                
+                                            }
+                                            
+                                            Button(action: {
+                                                goToFocusBreathScreen.toggle()
+                                                
+                                            }) {
+                                                Image("focusbreath")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .frame(width:buttonWidth, height: geo.size.height/(3*ratio), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                                
+                                            }
+                                            
+                                            Rectangle().frame(height: geo.size.height/(3.5*ratio)).opacity(0)
+                                            
                                         }
-                                        Spacer()
+                                        
                                     }
+                                    
+                                    
+                                    
+                                    .toolbar {
+                                        
+                                        // Code for Toolbar at bottom of screen
+                                        ToolbarItemGroup(placement: .bottomBar) {
+                                            Spacer()
+                                            Button(action: {
+                                                
+                                            }, label: {
+                                                Image(systemName: "house")
+                                                    .font(.system(size: 50))
+                                            })
+                                            Spacer()
+                                            Spacer()
+                                            HStack {
+                                                Spacer()
+                                                Spacer()
+                                                Spacer()
+                                                Spacer()
+                                                Spacer()
+                                                
+                                                Button(action: {
+                                                    goToProfileScreen = true
+                                                }, label: {
+                                                    Image(systemName: "person")
+                                                        .font(.system(size: 25))
+                                                    
+                                                })
+                                            }
+                                            Spacer()
+                                        }
+                                    }
+                                    
                                 }
-                                
                             }
                             
                             GeometryReader { geo in

@@ -68,7 +68,7 @@ struct MainScreen: View {
                                         let ratio = geo.size.height/geo.size.width
                                         let buttonWidth = geo.size.height/(1.1*ratio)
                                         // make the spacing dependent on the ratio of height to width. The higher the ratio, the large the height will be divided by.
-                                        Rectangle().frame(height: geo.size.height/(1.8*ratio)).opacity(0)
+                                        Rectangle().frame(height: geo.size.height/(3*ratio)).opacity(0)
                                         VStack {
                                             Button(action: {
                                                 goToHappinessBreathScreen.toggle()
@@ -93,7 +93,7 @@ struct MainScreen: View {
                                             }
                                             
                                             Button(action: {
-                                                goToHappinessBreathScreen.toggle()
+                                                goToConfidenceBreathScreen.toggle()
                                                 
                                             }) {
                                                 Image("confiencebreath")
@@ -147,14 +147,11 @@ struct MainScreen: View {
                                                 
                                             }
                                             
-                                            Rectangle().frame(height: geo.size.height/(3.5*ratio)).opacity(0)
+                                            
                                             
                                         }
                                         
                                     }
-                                    
-                                    
-                                    
                                     .toolbar {
                                         
                                         // Code for Toolbar at bottom of screen

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,7 +30,8 @@
 		F266143F2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F266143E2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 */; };
 		F266144126530B3300DFF8E3 /* confidencebreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F266144026530B3300DFF8E3 /* confidencebreath.mp3 */; };
 		F26614452653437C00DFF8E3 /* lisong-pro_bigfontsite.com.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F26614442653407D00DFF8E3 /* lisong-pro_bigfontsite.com.ttf */; };
-		F2D48FB32666669300B13335 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2D48FB22666669300B13335 /* GoogleService-Info.plist */; };
+		F2927DD926667911004E8317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2927DD826667911004E8317 /* GoogleService-Info.plist */; };
+		F2927DDA26667911004E8317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2927DD826667911004E8317 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +76,7 @@
 		F266143E2652B6A100DFF8E3 /* wimhof-secondhalf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "wimhof-secondhalf.mp3"; path = "myitems/sounds/wimhof-secondhalf.mp3"; sourceTree = "<group>"; };
 		F266144026530B3300DFF8E3 /* confidencebreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = confidencebreath.mp3; path = myitems/sounds/confidencebreath.mp3; sourceTree = "<group>"; };
 		F26614442653407D00DFF8E3 /* lisong-pro_bigfontsite.com.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "lisong-pro_bigfontsite.com.ttf"; sourceTree = "<group>"; };
-		F2D48FB22666669300B13335 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2927DD826667911004E8317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +104,6 @@
 				CC33ED28AB45EC513AC9E71E /* Pods-Respiro.debug.xcconfig */,
 				BAF9E9AFA321E4ECC88682CD /* Pods-Respiro.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -190,7 +190,7 @@
 				F2648808264EAFC300B5BA5A /* InhaleApp.swift */,
 				F219623F264F20B60002BC36 /* PlaySound.swift */,
 				F264880C264EAFC300B5BA5A /* Assets.xcassets */,
-				F2D48FB22666669300B13335 /* GoogleService-Info.plist */,
+				F2927DD826667911004E8317 /* GoogleService-Info.plist */,
 				F2648811264EAFC300B5BA5A /* Info.plist */,
 				F2056FAB265D3DA300A78DF2 /* Data */,
 				F264880E264EAFC300B5BA5A /* Preview Content */,
@@ -326,7 +326,7 @@
 				F266143B2652A7B400DFF8E3 /* wimhofv4.mp3 in Resources */,
 				F20C80ED26587A1F00575C00 /* relaxbreath.mp3 in Resources */,
 				F266144126530B3300DFF8E3 /* confidencebreath.mp3 in Resources */,
-				F2D48FB32666669300B13335 /* GoogleService-Info.plist in Resources */,
+				F2927DD926667911004E8317 /* GoogleService-Info.plist in Resources */,
 				F2056FB1265D776100A78DF2 /* breathstats.json in Resources */,
 				F2661437265169CE00DFF8E3 /* wimhofv3.mp3 in Resources */,
 				F2056FB3265D777300A78DF2 /* breathsobjects.json in Resources */,
@@ -338,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2927DDA26667911004E8317 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +540,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_PRIVATE_MODULE = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"respiro/Preview Content\"";
 				DEVELOPMENT_TEAM = 53K66LP852;
@@ -562,6 +565,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_PRIVATE_MODULE = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"respiro/Preview Content\"";
 				DEVELOPMENT_TEAM = 53K66LP852;

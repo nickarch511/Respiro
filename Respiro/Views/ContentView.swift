@@ -460,8 +460,9 @@ struct HappinessBreath: View {
                             
                             let myCalendar = Calendar(identifier: .gregorian)
                             let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
+                            let dateString = "\(ymd)"
+                            let thisBreath = Breath(typeOfBreath: "happiness", numBreaths: numBreathsTaken, date: dateString)
                             
-                            let thisBreath = Breath(typeOfBreath: "happiness", numBreaths: numBreathsTaken, date: ymd)
                             breathModel.breaths.append(thisBreath)
                             breathModel.write_to_json()
                             

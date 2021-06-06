@@ -463,8 +463,7 @@ struct HappinessBreath: View {
                             let dateString = "\(ymd)"
                             let thisBreath = Breath(typeOfBreath: "happiness", numBreaths: numBreathsTaken, date: dateString)
                             
-                            breathModel.breaths.append(thisBreath)
-                            breathModel.write_to_json()
+                            breathModel.addBreathInstance(breath: thisBreath)
                             
                             UIApplication.shared.isIdleTimerDisabled = false
                             returnHome = true

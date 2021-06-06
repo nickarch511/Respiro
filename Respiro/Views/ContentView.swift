@@ -284,15 +284,23 @@ struct ProfileScreen: View {
                                             HStack {
                                                 ForEach(1..<7) { j in
                                                     ZStack {
-                                                        RoundedRectangle(cornerRadius: 10.0)
-                                                            .foregroundColor(Color("gray")).opacity(0.5)
-                                                            .frame(width: 40, height: 60)
-                                                        VStack {
-                                                            let dayNum = (i-1)*6+j
-                                                            Text(String(dayNum))
-                                                                .foregroundColor(Color.black)
-                                                            Image(systemName: "checkmark.seal").foregroundColor(.green)
-                                                        }
+                                                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                                            ZStack {
+                                                                RoundedRectangle(cornerRadius: 10.0)
+                                                                    .foregroundColor(Color("gray")).opacity(0.5)
+                                                                    .frame(width: 40, height: 60)
+                                                                
+                                                                VStack {
+                                                                    let dayNum = (i-1)*6+j
+                                                                    Text(String(dayNum))
+                                                                        .foregroundColor(Color.black)
+                                                                    Image(systemName: "checkmark.seal")
+                                                                        .foregroundColor(.green)
+                                                                
+                                                                }
+                                                            }
+                                                        })
+                                                       
                                                         
                                                     }
                                                 }
@@ -314,7 +322,7 @@ struct ProfileScreen: View {
                          
                             Image(max_breath)
                                 .resizable()
-                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: geo.size.width, height: geo.size.height/5)
                                 .scaledToFill()
                                 .scaleEffect(0.85)

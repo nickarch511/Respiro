@@ -649,16 +649,16 @@ struct BoxBreath: View {
         Player().stopPlaying()
         totalBreaths += numBreathsTaken
         
-        if breathModel.breathHash["happiness"] == nil {
-            breathModel.breathHash["happiness"] = 1
+        if breathModel.breathHash["box"] == nil {
+            breathModel.breathHash["box"] = 1
         } else {
-            breathModel.breathHash["happiness"]! += 1
+            breathModel.breathHash["box"]! += 1
         }
         
         let myCalendar = Calendar(identifier: .gregorian)
         let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
         let dateString = "\(ymd)"
-        let thisBreath = Breath(typeOfBreath: "happiness", numBreaths: numBreathsTaken, date: dateString)
+        let thisBreath = Breath(typeOfBreath: "box", numBreaths: numBreathsTaken, date: dateString)
         
         breathModel.addBreathInstance(breath: thisBreath)
         
@@ -796,7 +796,7 @@ struct WimHofScreen: View {
     let num_seconds_per_in = 3.0 // Num seconds per in breath (to link with audio)
     let num_seconds_per_out = 2.0 // Num seconds per out breath (to link with audio)
     let num_rounds = 4
-    
+    let breathModel = BreathModel()
     
     @State var images:Array<String> = []
     
@@ -811,6 +811,28 @@ struct WimHofScreen: View {
             imgArray.append("out")
         }
         print(imgArray)
+    }
+    
+    func goHome() {
+        counter = 0
+        Player().stopPlaying()
+        totalBreaths += breaths_in_round*round_number + breathcounter
+        
+        if breathModel.breathHash["retention"] == nil {
+            breathModel.breathHash["retention"] = 1
+        } else {
+            breathModel.breathHash["retention"]! += 1
+        }
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
+        let dateString = "\(ymd)"
+        let thisBreath = Breath(typeOfBreath: "retention", numBreaths: breaths_in_round*round_number + breathcounter, date: dateString)
+        
+        breathModel.addBreathInstance(breath: thisBreath)
+        
+        UIApplication.shared.isIdleTimerDisabled = false
+        returnHome = true
     }
     
     func onTimerTic() {
@@ -887,10 +909,7 @@ struct WimHofScreen: View {
                         
                         // check where to go next
                         if round_number >= num_rounds - 1 {
-                            totalBreaths += breaths_in_round*round_number + breathcounter
-                            UIApplication.shared.isIdleTimerDisabled = false
-                            returnHome = true
-                            Player().stopPlaying()
+                            goHome()
                         } else {
                             round_number += 1
                             counter = 0
@@ -954,11 +973,7 @@ struct WimHofScreen: View {
                     Spacer()
                     Spacer()
                     Button(action: {
-                            counter = 0
-                            Player().stopPlaying()
-                            totalBreaths += breaths_in_round*round_number + breathcounter
-                            UIApplication.shared.isIdleTimerDisabled = false
-                            returnHome = true}
+                            goHome()}
                     ) {
                         Image(systemName: "house")
                             .font(.system(size:60))

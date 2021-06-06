@@ -236,6 +236,7 @@ struct ProfileScreen: View {
     @AppStorage("totalFocusBreaths") var totalFocusBreaths = 0
     let breathModel = BreathModel() // this is the ViewModel that gives our View access to the stored user data
     
+    
     private func find_max_breath(x: [tuple]) -> String {
         var max_breaths_count = 0
         var corresponding_breath = ""
@@ -254,120 +255,146 @@ struct ProfileScreen: View {
                 if goHome {
                     MainScreen()
                 } else {
-                    ScrollView {
-                        VStack {
-                            if ceil(log10(Double(totalBreaths))) > 6 {
-                                Text(String(totalBreaths))
-                                    .font(.custom("LiSong Pro", size: 60))
-                                Text(String("total breaths taken"))
-                                    .font(.custom("LiSong Pro", size: 40))
-                            } else {
-                                Text(String(totalBreaths))
-                                    .font(.custom("LiSong Pro", size: 100))
-                                Text(String("total breaths taken"))
-                                    .font(.custom("LiSong Pro", size: 40))
-                            }
-                            Spacer(minLength: 50)
-                            
-                            let date = Date()
-                            HStack {
-                                Rectangle().frame(width: geo.size.width/5, height: 1)
-                                Text(date.month)
-                                .font(.custom("LiSong Pro", size: 30))
-                                Rectangle().frame(width: geo.size.width/5, height: 1)
-                            }
+                    ZStack {
+                        ScrollView {
                             VStack {
+                                Rectangle()
+                                    .frame(height: geo.size.height/5)
+                                    .foregroundColor(Color.white)
+                                let date = Date()
                                 HStack {
-                                    Rectangle().frame(width: 1, height: geo.size.height/3)
-                                    VStack {
-                                        ForEach(1..<6) { i in
-                                            HStack {
-                                                ForEach(1..<7) { j in
-                                                    ZStack {
-                                                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                                                            ZStack {
-                                                                RoundedRectangle(cornerRadius: 10.0)
-                                                                    .foregroundColor(Color("gray")).opacity(0.5)
-                                                                    .frame(width: 40, height: 60)
-                                                                
-                                                                VStack {
-                                                                    let dayNum = (i-1)*6+j
-                                                                    Text(String(dayNum))
-                                                                        .foregroundColor(Color.black)
-                                                                    Image(systemName: "checkmark.seal")
-                                                                        .foregroundColor(.green)
-                                                                
+                                    Rectangle().frame(width: geo.size.width/5, height: 1)
+                                    Text(date.month)
+                                    .font(.custom("LiSong Pro", size: 30))
+                                    Rectangle().frame(width: geo.size.width/5, height: 1)
+                                }
+                                VStack {
+                                    
+                                    HStack {
+                                        Rectangle().frame(width: 1, height: geo.size.height/3)
+                                        VStack {
+                                            ForEach(1..<6) { i in
+                                                HStack {
+                                                    ForEach(1..<7) { j in
+                                                        let dayNum = (i-1)*6+j
+                                                        ZStack {
+                                                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                                                ZStack {
+                                                                    RoundedRectangle(cornerRadius: 10.0)
+                                                                        .foregroundColor(Color("gray")).opacity(0.5)
+                                                                        .frame(width: 40, height: 60)
+                                                                    
+                                                                    VStack {
+                                                                        
+                                                                        Text(String(dayNum))
+                                                                            .foregroundColor(Color.black)
+                                                                        Image(systemName: "checkmark.seal")
+                                                                            .foregroundColor(.green)
+                                                                    
+                                                                    }
                                                                 }
-                                                            }
-                                                        })
-                                                       
+                                                                
+                                                            })
+                                                            
+                                                        }
                                                         
                                                     }
                                                 }
                                             }
+
+                                            
                                         }
+                                        Rectangle().frame(width: 1, height: geo.size.height/3)
                                     }
-                                    Rectangle().frame(width: 1, height: geo.size.height/3)
                                 }
+                                Rectangle()
+                                    .frame(width:geo.size.width/2, height:1)
                             }
-                            Rectangle()
-                                .frame(width:geo.size.width/2, height:1)
+                            VStack {
+                                Spacer(minLength: 50)
+                                Text("most used breath: ").font(.custom("LiSong Pro", size: 30))
+                                
+                                let list_of_breath_tuples = [("wimhofbutton", totalWimHofs), ("confiencebreath", totalConfidenceBreaths), ("happinessbutton", totalHappinessBreaths), ("boxbutton", totalBoxBreaths), ("breathoffirebutton", totalBreathOfFire), ("relaxingbreathbutton", totalRelaxingBreaths), ("focusbreath", totalFocusBreaths)]
+                                let max_breath = find_max_breath(x: list_of_breath_tuples)
+                             
+                                Image(max_breath)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: geo.size.width, height: geo.size.height/5)
+                                    .scaledToFill()
+                                    .scaleEffect(0.85)
+                                
+                                Spacer()
+                                
+                            }
                         }
-                        VStack {
-                            Spacer(minLength: 50)
-                            Text("most used breath: ").font(.custom("LiSong Pro", size: 30))
+                        .toolbar {
                             
-                            let list_of_breath_tuples = [("wimhofbutton", totalWimHofs), ("confiencebreath", totalConfidenceBreaths), ("happinessbutton", totalHappinessBreaths), ("boxbutton", totalBoxBreaths), ("breathoffirebutton", totalBreathOfFire), ("relaxingbreathbutton", totalRelaxingBreaths), ("focusbreath", totalFocusBreaths)]
-                            let max_breath = find_max_breath(x: list_of_breath_tuples)
-                         
-                            Image(max_breath)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: geo.size.width, height: geo.size.height/5)
-                                .scaledToFill()
-                                .scaleEffect(0.85)
-                            
-                            Spacer()
-                            
-                        }
-                    }
-                    .toolbar {
-                        
-                        // Code for Toolbar at bottom of screen
-                        ToolbarItemGroup(placement: .bottomBar) {
-                            Spacer()
-                            Button(action: {
-                                UIApplication.shared.isIdleTimerDisabled = false
-                                goHome = true
-                            }, label: {
-                                Image(systemName: "house")
-                                    .font(.system(size: 50))
-                            })
-                            Spacer()
-                            Spacer()
-                            HStack {
+                            // Code for Toolbar at bottom of screen
+                            ToolbarItemGroup(placement: .bottomBar) {
                                 Spacer()
-                                
-                                
-                                Spacer()
-                                Spacer()
-                                Spacer()
-                                Spacer()
-                                
-                                
-                                
                                 Button(action: {
-                                    
+                                    UIApplication.shared.isIdleTimerDisabled = false
+                                    goHome = true
                                 }, label: {
-                                    Image(systemName: "person")
-                                        .font(.system(size: 25))
+                                    Image(systemName: "house")
+                                        .font(.system(size: 50))
+                                })
+                                Spacer()
+                                Spacer()
+                                HStack {
+                                    Spacer()
                                     
-                                }).onAppear(perform: {UIApplication.shared.isIdleTimerDisabled = false})
+                                    
+                                    Spacer()
+                                    Spacer()
+                                    Spacer()
+                                    Spacer()
+                                    
+                                    
+                                    
+                                    Button(action: {
+                                        
+                                    }, label: {
+                                        Image(systemName: "person")
+                                            .font(.system(size: 25))
+                                        
+                                    }).onAppear(perform: {UIApplication.shared.isIdleTimerDisabled = false})
+                                }
+                                Spacer()
+                            }
+                        }
+                        
+                        ZStack {
+                            VStack {
+                                Rectangle()
+                                    .frame(width: geo.size.width, height: geo.size.height/4)
+                                    .foregroundColor(Color.white)
+                                    .ignoresSafeArea()
+                                Spacer()
+                            }
+                            
+                            VStack {
+                                if ceil(log10(Double(totalBreaths))) > 6 {
+                                    Text(String(totalBreaths))
+                                        .font(.custom("LiSong Pro", size: 60))
+                                        
+                                    Text(String("total breaths taken"))
+                                        .font(.custom("LiSong Pro", size: 40))
+                             
+                                } else {
+                                    Text(String(totalBreaths))
+                                        .font(.custom("LiSong Pro", size: 100))
+                                    Text(String("total breaths taken"))
+                                        .font(.custom("LiSong Pro", size: 40))
+                                }
+                                Spacer()
                             }
                             Spacer()
+                            Spacer()
                         }
+                        
                     }
-                    
                 }
                 
             }.onAppear(perform: {

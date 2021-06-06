@@ -55,14 +55,16 @@ class BreathModel : ObservableObject {
     
     // Here is where the code will go for writing to the Database
     func addBreathInstance(breath:Breath) {
-        let db = Firestore.firestore()
-        let collection = db.collection(String(id))
-        
-        // Create a document
-        let document = collection.document()
-        
-        // Add the given breath
-        document.setData(["typeOfBreath": breath.typeOfBreath, "numBreaths": breath.numBreaths, "date": breath.date ?? ""])
+        if breath.numBreaths > 0 {
+            let db = Firestore.firestore()
+            let collection = db.collection(String(id))
+            
+            // Create a document
+            let document = collection.document()
+            
+            // Add the given breath
+            document.setData(["typeOfBreath": breath.typeOfBreath, "numBreaths": breath.numBreaths, "date": breath.date ?? ""])
+        }
     }
     
 //    func write_to_json() {

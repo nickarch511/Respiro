@@ -350,6 +350,29 @@ struct HappinessBreath: View {
     
     let breathModel = BreathModel() // this is the ViewModel that gives our View access to the stored user data
     
+    func goHome() {
+        counter = 0
+        Player().stopPlaying()
+        totalBreaths += numBreathsTaken
+        
+        if breathModel.breathHash["happiness"] == nil {
+            breathModel.breathHash["happiness"] = 1
+        } else {
+            breathModel.breathHash["happiness"]! += 1
+        }
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
+        let dateString = "\(ymd)"
+        let thisBreath = Breath(typeOfBreath: "happiness", numBreaths: numBreathsTaken, date: dateString)
+        
+        breathModel.addBreathInstance(breath: thisBreath)
+        
+        UIApplication.shared.isIdleTimerDisabled = false
+        returnHome = true
+    }
+    
+    
     func onTimerTic(num_breaths: Int = 8) {
         let index = counter % (images.count)
         if (counter % (images.count)) == 0 {
@@ -364,10 +387,7 @@ struct HappinessBreath: View {
             
         }
         if numBreathsTaken >= num_breaths {
-            totalBreaths += numBreathsTaken
-            numBreathsTaken = 0
-            UIApplication.shared.isIdleTimerDisabled = false
-            returnHome = true
+            goHome()
         }
         
         counter += 1
@@ -448,25 +468,7 @@ struct HappinessBreath: View {
                     VStack {
                         Spacer()
                         Button(action: {
-                            counter = 0
-                            Player().stopPlaying()
-                            totalBreaths += numBreathsTaken
-                            
-                            if breathModel.breathHash["happiness"] == nil {
-                                breathModel.breathHash["happiness"] = 1
-                            } else {
-                                breathModel.breathHash["happiness"]! += 1
-                            }
-                            
-                            let myCalendar = Calendar(identifier: .gregorian)
-                            let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
-                            let dateString = "\(ymd)"
-                            let thisBreath = Breath(typeOfBreath: "happiness", numBreaths: numBreathsTaken, date: dateString)
-                            
-                            breathModel.addBreathInstance(breath: thisBreath)
-                            
-                            UIApplication.shared.isIdleTimerDisabled = false
-                            returnHome = true
+                            goHome()
                             
                         }
                         ) {

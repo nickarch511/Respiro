@@ -1146,6 +1146,29 @@ struct RelaxingBreath: View {
     private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var counter = 0
     let images = ["inbelly", "inbelly", "inbelly", "inbelly", "inchest","inchest", "inchest", "inchest", "out", "out", "out", "out", "out", "out", "out", "out"]
+    let breathModel = BreathModel()
+    
+    func goHome() {
+        counter = 0
+        Player().stopPlaying()
+        totalBreaths += numBreathsTaken
+        
+        if breathModel.breathHash["relaxing"] == nil {
+            breathModel.breathHash["relaxing"] = 1
+        } else {
+            breathModel.breathHash["relaxing"]! += 1
+        }
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
+        let dateString = "\(ymd)"
+        let thisBreath = Breath(typeOfBreath: "relaxing", numBreaths: numBreathsTaken, date: dateString)
+        
+        breathModel.addBreathInstance(breath: thisBreath)
+        
+        UIApplication.shared.isIdleTimerDisabled = false
+        returnHome = true
+    }
     
     func onTimerTic(num_breaths: Int = 8) {
         let index = counter % (images.count)
@@ -1161,10 +1184,7 @@ struct RelaxingBreath: View {
             
         }
         if numBreathsTaken >= num_breaths {
-            totalBreaths += numBreathsTaken
-            numBreathsTaken = 0
-            UIApplication.shared.isIdleTimerDisabled = false
-            returnHome = true
+            goHome()
         }
         
         counter += 1
@@ -1238,11 +1258,7 @@ struct RelaxingBreath: View {
                     VStack {
                         Spacer()
                         Button(action: {
-                            counter = 0
-                            Player().stopPlaying()
-                            totalBreaths += numBreathsTaken
-                            UIApplication.shared.isIdleTimerDisabled = false
-                            returnHome = true
+                            goHome()
                             
                         }
                         ) {

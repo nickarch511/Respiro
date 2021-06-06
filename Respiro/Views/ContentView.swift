@@ -1293,6 +1293,31 @@ struct FocusBreath: View {
     
     let images2 = ["inleft", "inleft", "inleft", "inleft", "inleft","inleft", "inleft", "inleft", "inleft", "inleft", "inleft", "inleft", "outright","outright", "outright", "outright", "outright", "outright", "outright", "outright","outright","outright","outright","outright"]
     
+    let breathModel = BreathModel()
+    
+    func goHome() {
+        counter = 0
+        Player().stopPlaying()
+        totalBreaths += numBreathsTaken
+        
+        if breathModel.breathHash["relaxing"] == nil {
+            breathModel.breathHash["relaxing"] = 1
+        } else {
+            breathModel.breathHash["relaxing"]! += 1
+        }
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
+        let dateString = "\(ymd)"
+        let thisBreath = Breath(typeOfBreath: "relaxing", numBreaths: numBreathsTaken, date: dateString)
+        
+        breathModel.addBreathInstance(breath: thisBreath)
+        
+        UIApplication.shared.isIdleTimerDisabled = false
+        returnHome = true
+    }
+    
+    
     func onTimerTic(num_breaths: Int = 8) {
         let index = counter % (images.count)
         if (counter % (images.count)) == 0 {
@@ -1312,10 +1337,7 @@ struct FocusBreath: View {
             
         }
         if numBreathsTaken >= num_breaths {
-            totalBreaths += numBreathsTaken
-            numBreathsTaken = 0
-            UIApplication.shared.isIdleTimerDisabled = false
-            returnHome = true
+            goHome()
         }
         
         counter += 1
@@ -1395,11 +1417,7 @@ struct FocusBreath: View {
                     VStack {
                         Spacer()
                         Button(action: {
-                            counter = 0
-                            Player().stopPlaying()
-                            totalBreaths += numBreathsTaken
-                            UIApplication.shared.isIdleTimerDisabled = false
-                            returnHome = true
+                            goHome()
                             
                         }
                         ) {

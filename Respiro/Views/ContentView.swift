@@ -642,6 +642,29 @@ struct BoxBreath: View {
     private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     @State var counter = 0
     let images = ["in", "in", "in", "in", "in", "in", "in", "in", "hold","hold", "hold", "hold", "hold", "hold", "hold", "hold", "out", "out", "out", "out", "out","out","out", "out", "hold","hold", "hold", "hold", "hold", "hold", "hold", "hold"]
+    let breathModel = BreathModel()
+    
+    func goHome() {
+        counter = 0
+        Player().stopPlaying()
+        totalBreaths += numBreathsTaken
+        
+        if breathModel.breathHash["happiness"] == nil {
+            breathModel.breathHash["happiness"] = 1
+        } else {
+            breathModel.breathHash["happiness"]! += 1
+        }
+        
+        let myCalendar = Calendar(identifier: .gregorian)
+        let ymd = myCalendar.dateComponents([.year, .month, .day], from: Date())
+        let dateString = "\(ymd)"
+        let thisBreath = Breath(typeOfBreath: "happiness", numBreaths: numBreathsTaken, date: dateString)
+        
+        breathModel.addBreathInstance(breath: thisBreath)
+        
+        UIApplication.shared.isIdleTimerDisabled = false
+        returnHome = true
+    }
     
     func onTimerTic(num_breaths: Int = 8) {
         let index = counter % (images.count)
@@ -657,10 +680,7 @@ struct BoxBreath: View {
             
         }
         if numBreathsTaken >= num_breaths {
-            totalBreaths += numBreathsTaken
-            numBreathsTaken = 0
-            UIApplication.shared.isIdleTimerDisabled = false
-            returnHome = true
+            goHome()
         }
         
         counter += 1
@@ -733,11 +753,7 @@ struct BoxBreath: View {
                     VStack {
                         Spacer()
                         Button(action: {
-                            counter = 0
-                            Player().stopPlaying()
-                            totalBreaths += numBreathsTaken
-                            UIApplication.shared.isIdleTimerDisabled = false
-                            returnHome = true
+                            goHome()
                             
                         }
                         ) {

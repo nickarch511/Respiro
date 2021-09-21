@@ -9,3 +9,6 @@ I created this app because I oftentimes find myself seeking a quick meditation t
 
 ## How it Works
 This app consists of a main screen which is a sliding view that holds all of the different breath practices. Users can click on a breath practice and choose how much time they wish to meditate for and the app will guide them with both visual and audio cues.
+
+## Link to Demonstration
+https://youtu.be/ixnrp319mlQ
